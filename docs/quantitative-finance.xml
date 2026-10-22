@@ -68,17 +68,17 @@
 <pubDate>Fri, 04 Sep 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
-<title>Variable selection for minimum-variance portfolios</title>
-<link>https://arxiv.org/abs/2508.14986</link>
-<guid isPermaLink="true">https://arxiv.org/abs/2508.14986</guid>
-<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Guilherme V. Moura, André P. Santos, Hudson S. Torrent&lt;/p&gt;&lt;p&gt;Machine learning (ML) methods have been successfully employed in identifying variables that can predict the equity premium of individual stocks. In this paper, we investigate if ML can also be helpful in selecting variables relevant for optimal portfolio choice. To address this question, we parameterize minimum-variance portfolio weights as a function of a large pool of firm-level characteristics as well as their second-order and cross-product transformations, yielding a total of 4,610 predictors. We find that the gains from employing ML to select relevant predictors are substantial: minimum-variance portfolios achieve lower risk relative to sparse specifications commonly considered in the literature, especially when non-linear terms are added to the predictor space. Moreover, some of the selected predictors that help decreasing portfolio risk also increase returns, leading to minimum-variance portfolios with good performance in terms of Shape ratios in some situations. Our evidence suggests that ad-hoc sparsity can be detrimental to the performance of minimum-variance characteristics-based portfolios.&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2508.14986"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2508.14986"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2720623"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
-<pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
-</item>
-<item>
 <title>Refined Expansions of the Skew-Stickiness Ratio in Stochastic Volatility Models</title>
 <link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5387754</link>
 <guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5387754</guid>
 <content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Florian Bourgey, Jules Delemotte, Stefano De Marco&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5387754"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2714860"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Variable selection for minimum-variance portfolios</title>
+<link>https://arxiv.org/abs/2508.14986</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2508.14986</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Guilherme V. Moura, André P. Santos, Hudson S. Torrent&lt;/p&gt;&lt;p&gt;Machine learning (ML) methods have been successfully employed in identifying variables that can predict the equity premium of individual stocks. In this paper, we investigate if ML can also be helpful in selecting variables relevant for optimal portfolio choice. To address this question, we parameterize minimum-variance portfolio weights as a function of a large pool of firm-level characteristics as well as their second-order and cross-product transformations, yielding a total of 4,610 predictors. We find that the gains from employing ML to select relevant predictors are substantial: minimum-variance portfolios achieve lower risk relative to sparse specifications commonly considered in the literature, especially when non-linear terms are added to the predictor space. Moreover, some of the selected predictors that help decreasing portfolio risk also increase returns, leading to minimum-variance portfolios with good performance in terms of Shape ratios in some situations. Our evidence suggests that ad-hoc sparsity can be detrimental to the performance of minimum-variance characteristics-based portfolios.&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2508.14986"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2508.14986"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2720623"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
 <pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
@@ -87,6 +87,13 @@
 <guid isPermaLink="true">https://arxiv.org/abs/2508.16595</guid>
 <content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Zixing Chen, Yihan Qi, Shanlan Que, Julian Sester, Xiao Zhang&lt;/p&gt;&lt;p&gt;In this paper we study the quality of model-free valuation approaches for financial derivatives by systematically evaluating the difference between model-free super-hedging strategies and the realized payoff of financial derivatives using historical option prices from several constituents of the S&amp;amp;P 500 between 2018 and 2022. Our study allows in particular to describe the realized gap between payoff and model-free hedging strategy empirically so that we can quantify to which degree model-free approaches are overly conservative. Our results imply that the model-free hedging approach is only marginally more conservative than industry-standard models such as the Heston-model while being model-free at the same time. This finding, its statistical description and the model-independence of the hedging approach enable us to construct an explicit trading strategy which, as we demonstrate, can be profitably applied in financial markets, and additionally possesses the desirable feature with an explicit control of its downside risk due to its model-free construction preventing losses pathwise.&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2508.16595"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2508.16595"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2694470"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
 <pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Explicit Methods for Portfolio Optimization with Realistic Costs and Constraints</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7075718</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7075718</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Gordon Ritter&lt;/p&gt;&lt;p&gt;We present algorithms for mean-variance optimization with realistic costs, including borrow costs, bid-offer spread cost, and market impact according to the well-known square root law. The algorithm performs coordinate updates, each of which reduces to a univariate subproblem with a closed-form algebraic solution. The technique extends to problems with box constraints, and to certain kinds of multi-horizon objectives. We demonstrate an improvement in the computational complexity when the covariance matrix has a factor structure.&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7075718"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2707213"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Wed, 05 Aug 2026 12:00:00 +0000</pubDate>
 </item>
 </channel>
 </rss>

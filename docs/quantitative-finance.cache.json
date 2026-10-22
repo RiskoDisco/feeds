@@ -49,6 +49,22 @@
   "checked": "2026-10-22",
   "match": null
  },
+ "https://doi.org/10.1080/14697688.2026.2707213": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We present algorithms for mean-variance optimization with realistic costs, including borrow costs, bid-offer spread cost, and market impact according to the well-known square root law. The algorithm performs coordinate updates, each of which reduces to a univariate subproblem with a closed-form algebraic solution. The technique extends to problems with box constraints, and to certain kinds of multi-horizon objectives. We demonstrate an improvement in the computational complexity when the covariance matrix has a factor structure.",
+   "authors": [
+    "Gordon Ritter"
+   ],
+   "title": "Explicit Methods for Portfolio Optimization with Realistic Costs and Constraints",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7075718"
+  },
+  "paper": {
+   "date": "2026-08-05T12:00:00+00:00",
+   "description": null,
+   "title": "Explicit methods for portfolio optimization with realistic costs and constraints"
+  }
+ },
  "https://doi.org/10.1080/14697688.2026.2708220": {
   "checked": "2026-10-22",
   "match": null
