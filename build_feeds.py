@@ -15,6 +15,7 @@ Standard library only, nothing to install.
 """
 
 import gzip
+import html as html_lib
 import json
 import re
 import sys
@@ -57,30 +58,40 @@ class LinkCollector(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.links = []      # [(href, [(text, in_heading)])]
-        self._stack = []     # currently open <a> tags
+        self.spans = []      # [(start, end)] for each entry of self.links, as positions in self.texts
+        self.texts = []      # every text chunk on the page, in order (also outside links)
+        self._stack = []     # currently open <a> tags: (href, chunks, start)
         self._heading = 0    # depth of open heading tags
+        self._skip = 0       # depth of <script>/<style>, whose text is not page text
 
     def handle_starttag(self, tag, attrs):
         if tag == "a":
-            self._stack.append((dict(attrs).get("href"), []))
+            self._stack.append((dict(attrs).get("href"), [], len(self.texts)))
         elif tag in self.HEADINGS:
             self._heading += 1
+        elif tag in ("script", "style"):
+            self._skip += 1
 
     def handle_endtag(self, tag):
         if tag == "a" and self._stack:
-            href, chunks = self._stack.pop()
+            href, chunks, start = self._stack.pop()
             if href:
                 self.links.append((href, chunks))
+                self.spans.append((start, len(self.texts)))
                 # text of a nested link also belongs to the outer one
                 if self._stack:
                     self._stack[-1][1].extend(chunks)
         elif tag in self.HEADINGS and self._heading:
             self._heading -= 1
+        elif tag in ("script", "style") and self._skip:
+            self._skip -= 1
 
     def handle_data(self, data):
         text = " ".join(data.split())
         if text and self._stack:
             self._stack[-1][1].append((text, self._heading > 0))
+        if text and not self._skip:
+            self.texts.append(text)
 
 
 def decode_body(raw, content_encoding, charset):
@@ -111,7 +122,11 @@ def fetch_xml(url, **kwargs):
     If the site sends something else, the error says what it sent, so the
     Actions log shows the real cause.
     """
-    text = fetch(url, **kwargs).lstrip("﻿ \t\r\n")
+    return parse_xml(fetch(url, **kwargs), url)
+
+
+def parse_xml(text, url):
+    text = text.lstrip("\ufeff \t\r\n")
     try:
         return ET.fromstring(text)
     except ET.ParseError as e:
@@ -168,31 +183,65 @@ def pick_title_and_summary(chunks, skip):
     return title, summary
 
 
+def nearby_date(texts, spans, i, article_spans, position, window=12):
+    """Date printed next to link number i instead of inside it.
+
+    position "before": the date is in the text just above the link (back to the
+    previous article link); "after": just below it (up to the next article link).
+    """
+    start, end = spans[i]
+    if position == "after":
+        stop = min((s for s, _ in article_spans if s >= end), default=len(texts))
+        chunk = texts[end:min(stop, end + window)]
+    else:
+        stop = max((e for _, e in article_spans if e <= start), default=0)
+        chunk = list(reversed(texts[max(stop, start - window):start]))
+    for text in chunk:
+        date = parse_date(text)
+        if date:
+            return date
+    return None
+
+
 def extract_items(source):
     html = fetch(source["page"])
     parser = LinkCollector()
     parser.feed(html)
 
+    # article links are recognised by URL fragments ("article_paths") or by a
+    # regular expression ("article_pattern")
+    pattern = re.compile(source["article_pattern"]) if source.get("article_pattern") else None
+
+    def is_article(url):
+        return bool(pattern.search(url)) if pattern else any(p in url for p in source["article_paths"])
+
+    position = source.get("date_position")  # where the date is printed, if not inside the link
+    links = [(i, href, chunks, urljoin(source["page"], href).split("#")[0])
+             for i, (href, chunks) in enumerate(parser.links)]
+    links = [x for x in links if is_article(x[3])]
+    article_spans = [parser.spans[i] for i, *_ in links]
+
     # The same article can appear several times (banner, card).
     # Keep the best version: one with a date and a real title.
     best = {}
-    for href, chunks in parser.links:
-        url = urljoin(source["page"], href).split("#")[0]
-        if not any(p in url for p in source["article_paths"]):
-            continue
+    for i, href, chunks, url in links:
         p = urlparse(url)
         key = p.netloc.removeprefix("www.") + p.path.rstrip("/")
         url = "https://" + p.netloc + p.path.rstrip("/")
         date = parse_date(" ".join(t for t, _ in chunks))
+        if date is None and position:
+            date = nearby_date(parser.texts, parser.spans, i, article_spans, position)
         title, summary = pick_title_and_summary(chunks, source.get("skip_text", set()))
         score = (date is not None, title is not None, summary is not None)
-        if key not in best or score > best[0]:
+        if key not in best or score > best[key][0]:
             best[key] = (score, {"title": title or title_from_slug(url), "link": url,
                                  "date": date, "summary": summary})
 
     items = [v for _, v in best.values()
              if v["date"] or not source.get("require_date")]
     items.sort(key=lambda i: i["date"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
+    if source.get("max_items"):
+        items = items[:source["max_items"]]
     return items
 
 
@@ -333,10 +382,31 @@ def arxiv_content(url):
             f'<p><a href="{escape(pdf)}">PDF</a> \u00b7 <a href="{escape(url)}">arXiv page</a></p>')
 
 
+CONTENT_TAG = "{http://purl.org/rss/1.0/modules/content/}encoded"
+
+
+def previous_full_text(source):
+    """Full texts already in the current feed file, by link (for "reuse_full_text")."""
+    try:
+        root = ET.parse(OUT_DIR / source["file"]).getroot()
+    except (OSError, ET.ParseError):
+        return {}
+    return {(it.findtext("link") or "").strip(): it.findtext(CONTENT_TAG)
+            for it in root.iter("item") if it.findtext(CONTENT_TAG)}
+
+
 def add_full_text(items, source):
-    """Fetch every article and attach its full text. Failures keep the summary."""
+    """Fetch every article and attach its full text. Failures keep the summary.
+
+    With "reuse_full_text", articles already in the feed keep the text fetched
+    before, so only new articles are downloaded.
+    """
     page_host = urlparse(source["page"]).netloc.removeprefix("www.")
+    known = previous_full_text(source) if source.get("reuse_full_text") else {}
     for it in items:
+        if known.get(it["link"]):
+            it["content"] = known[it["link"]]
+            continue
         host = urlparse(it["link"]).netloc.removeprefix("www.")
         try:
             if host == "arxiv.org":
@@ -349,10 +419,16 @@ def add_full_text(items, source):
 
 
 # ---------------------------------------------------------------------------
-# Free preprints for papers listed in another site's RSS feed
+# Free preprints for papers listed by a paywalled site or journal
 # ---------------------------------------------------------------------------
+#
+# A "preprints" source takes a list of paywalled papers (an RSS feed, or the
+# newest articles of journals looked up by ISSN in Crossref) and publishes only
+# the papers whose authors posted a free version on arXiv or SSRN.
 
 ARXIV_API = "https://export.arxiv.org/api/query"
+CROSSREF_API = "https://api.crossref.org/works"
+SSRN_DOI_PREFIX = "10.2139"   # every SSRN paper with a full text gets a DOI starting with this
 ATOM = "{http://www.w3.org/2005/Atom}"
 # Step 1: search by title.
 TITLE_MATCH = 0.85        # how similar the titles must be (1.0 = identical)
@@ -360,18 +436,23 @@ TITLE_MATCH = 0.85        # how similar the titles must be (1.0 = identical)
 # co-authors and pick the one about the same topic.
 TOPIC_MATCH = 0.5         # share of the paper's keywords the preprint must contain
 TOPIC_MARGIN = 0.15       # lead the best preprint needs over the next best one
-YEARS_BEFORE = 2          # preprint posted at most this long before the paper...
+YEARS_BEFORE = 2          # preprint posted at most this long before the paper (per source: "years_before")
 YEARS_AFTER = 1           # ...or at most this long after it
 RETRY_DAYS = 7            # look again for a paper with no preprint after this many days
 RETRY_MAX_AGE_DAYS = 180  # stop looking for papers older than this
-# Being polite to arXiv: it refuses requests ("HTTP 429 Too Many Requests")
-# when a script asks too often, and GitHub's servers are shared by many scripts.
-ARXIV_PAUSE = 5           # seconds between arXiv requests
-ARXIV_TIMEOUT = 60        # seconds to wait for an answer
-ARXIV_RETRIES = 2         # extra tries after a refusal or a timeout...
-ARXIV_BACKOFF = 30        # ...waiting this many seconds, doubled each time
-MAX_PAPERS_PER_RUN = 6    # the rest wait for the next hourly run
-ARXIV_USER_AGENT = "RiskoDisco-feeds/1.0 (personal RSS feeds; https://github.com/RiskoDisco/feeds)"
+MAX_PAPERS_PER_RUN = 10   # papers searched per run, all preprint feeds together; the rest wait
+SCRIPT_USER_AGENT = "RiskoDisco-feeds/1.0 (personal RSS feeds; https://github.com/RiskoDisco/feeds)"
+# Being polite to the search services: arXiv refuses requests ("HTTP 429 Too
+# Many Requests") when a script asks too often, and GitHub's servers are shared
+# by many scripts. After a refusal or a timeout we wait and try again; if the
+# service still refuses, searching stops until the next run.
+SERVICES = {
+    "arxiv": {"name": "arXiv", "pause": 5, "last": 0.0},
+    "crossref": {"name": "Crossref", "pause": 1, "last": 0.0},
+}
+SERVICE_TIMEOUT = 60      # seconds to wait for an answer
+SERVICE_RETRIES = 2       # extra tries after a refusal or a timeout...
+SERVICE_BACKOFF = 30      # ...waiting this many seconds, doubled each time
 STOPWORDS = {"with", "from", "into", "under", "over", "between", "their", "them", "this",
              "that", "these", "those", "what", "when", "where", "which", "while", "about",
              "beyond", "using", "towards", "toward", "through", "within", "without",
@@ -381,7 +462,16 @@ STOPWORDS = {"with", "from", "into", "under", "over", "between", "their", "them"
              "shown", "present", "presented", "presents", "introduce", "introduced",
              "introduces", "propose", "proposed", "proposes", "based", "approach",
              "approaches", "method", "methods"}
-_last_arxiv_request = [0.0]
+# journal entries that are not research papers
+NOT_A_PAPER = re.compile(r"^(issue information|front matter|back matter|masthead|editorial board|"
+                         r"erratum|errata|corrigendum|correction|retraction|report of the|"
+                         r"announcement|call for papers|index to|table of contents|"
+                         r"list of referees|acknowledg|in memoriam|obituary)", re.I)
+RUN = {"searched": 0, "busy": None}   # shared by all preprint feeds during one run
+
+
+class ServiceBusy(Exception):
+    """A search service keeps refusing requests; stop asking until the next run."""
 
 
 def ascii_fold(text):
@@ -404,25 +494,23 @@ def surnames(names):
     return {s for s in (surname(n) for n in names) if len(s) > 1}
 
 
-def read_rss_items(url):
-    """Items of an RSS 2.0 feed: title, link, date, description, authors."""
-    root = fetch_xml(url)
-    items = []
-    for it in root.iter("item"):
-        date = None
-        if it.findtext("pubDate"):
-            try:
-                date = parsedate_to_datetime(it.findtext("pubDate")).astimezone(timezone.utc)
-            except (TypeError, ValueError):
-                pass
-        items.append({
-            "title": " ".join((it.findtext("title") or "").split()),
-            "link": (it.findtext("link") or "").strip(),
-            "date": date,
-            "description": " ".join((it.findtext("description") or "").split()) or None,
-            "authors": [" ".join(a.text.split()) for a in it.iter("author") if (a.text or "").strip()],
-        })
-    return items
+def keywords(text):
+    """Rough word stems for comparing topics: 'calibrated', 'calibration' -> 'calib'."""
+    return {w[:5] for w in norm_text(text).split()
+            if len(w) >= 3 and w not in STOPWORDS and not w.isdigit()}
+
+
+def markup_to_text(text):
+    """Plain text from the little HTML/JATS markup Crossref uses in titles and abstracts."""
+    text = html_lib.unescape(re.sub(r"<[^>]+>", " ", text or ""))
+    text = " ".join(text.split())
+    return re.sub(r"^(abstract|summary)\s*[:.]?\s+", "", text, flags=re.I)
+
+
+def shorten(text, limit=300):
+    if not text or len(text) <= limit:
+        return text or None
+    return text[:limit].rsplit(" ", 1)[0] + "…"
 
 
 def clean_paper_title(title, authors):
@@ -434,31 +522,15 @@ def clean_paper_title(title, authors):
     return title
 
 
-def keywords(text):
-    """Rough word stems for comparing topics: 'calibrated', 'calibration' -> 'calib'."""
-    return {w[:5] for w in norm_text(text).split()
-            if len(w) >= 3 and w not in STOPWORDS and not w.isdigit()}
-
-
-class ArxivBusy(Exception):
-    """arXiv keeps refusing requests; stop asking until the next run."""
-
-
-def arxiv_query(query, max_results, **extra):
-    """Run one arXiv API search and return the papers it found.
-
-    Waits between requests, and after a refusal or a timeout waits longer and
-    tries again. Raises ArxivBusy if arXiv still refuses.
-    """
-    url = ARXIV_API + "?" + urlencode({"search_query": query, "max_results": max_results, **extra})
-    root = None
-    for attempt in range(ARXIV_RETRIES + 1):
-        wait = ARXIV_PAUSE - (time.time() - _last_arxiv_request[0])
+def service_get(service, url):
+    """GET a search service politely (see SERVICES). Raises ServiceBusy if it keeps refusing."""
+    s = SERVICES[service]
+    for attempt in range(SERVICE_RETRIES + 1):
+        wait = s["pause"] - (time.time() - s["last"])
         if wait > 0:
             time.sleep(wait)
         try:
-            root = fetch_xml(url, timeout=ARXIV_TIMEOUT, user_agent=ARXIV_USER_AGENT)
-            break
+            return fetch(url, timeout=SERVICE_TIMEOUT, user_agent=SCRIPT_USER_AGENT)
         except urllib.error.HTTPError as e:
             if e.code not in (429, 500, 502, 503, 504):
                 raise
@@ -469,11 +541,19 @@ def arxiv_query(query, max_results, **extra):
                 raise
             reason, retry_after = "timed out", ""
         finally:
-            _last_arxiv_request[0] = time.time()
-        if attempt == ARXIV_RETRIES:
-            raise ArxivBusy(reason)
-        delay = int(retry_after) if retry_after.isdigit() else ARXIV_BACKOFF * 2 ** attempt
+            s["last"] = time.time()
+        if attempt == SERVICE_RETRIES:
+            raise ServiceBusy(f"{s['name']}: {reason}")
+        delay = int(retry_after) if retry_after.isdigit() else SERVICE_BACKOFF * 2 ** attempt
         time.sleep(min(delay, 300))
+
+
+# --- arXiv -----------------------------------------------------------------
+
+def arxiv_query(query, max_results, **extra):
+    """Run one arXiv API search and return the papers it found."""
+    url = ARXIV_API + "?" + urlencode({"search_query": query, "max_results": max_results, **extra})
+    root = parse_xml(service_get("arxiv", url), url)
     found = []
     for e in root.findall(f"{ATOM}entry"):
         abs_url = (e.findtext(f"{ATOM}id") or "").strip()
@@ -496,16 +576,126 @@ def arxiv_query(query, max_results, **extra):
     return found
 
 
-def match_by_title(title, authors):
-    """Step 1: a preprint with a nearly identical title and at least one shared author."""
+def arxiv_by_title(title, names):
     words = [w for w in norm_text(title).split() if len(w) > 3 and w not in STOPWORDS][:6]
-    names = surnames(authors)
-    if len(words) < 2 or not names:
-        return None
+    if len(words) < 2:
+        return []
     query = " AND ".join(f"ti:{w}" for w in words)
     query += " AND (" + " OR ".join(f"au:{n}" for n in sorted(names)) + ")"
+    return arxiv_query(query, 10)
+
+
+def arxiv_by_authors(names, date, years_before):
+    query = " AND ".join(f"au:{n}" for n in sorted(names))
+    return arxiv_query(query, 50, sortBy="submittedDate", sortOrder="descending")
+
+
+# --- Crossref (journal contents, and SSRN preprints) ------------------------
+
+def crossref_query(params):
+    url = CROSSREF_API + "?" + urlencode(params)
+    text = service_get("crossref", url)
+    try:
+        return json.loads(text)["message"]["items"]
+    except (ValueError, KeyError, TypeError):
+        raise RuntimeError(f"{url} did not return Crossref results; it starts with {text[:80]!r}") from None
+
+
+def crossref_date(item):
+    """Earliest publication date of a Crossref record (online first, then print)."""
+    dates = []
+    for key in ("published-online", "published-print", "posted", "issued"):
+        parts = ((item.get(key) or {}).get("date-parts") or [[None]])[0]
+        if parts and parts[0]:
+            y, m, d = (list(parts) + [1, 1])[:3]
+            try:
+                dates.append(datetime(int(y), int(m or 1), int(d or 1), 12, tzinfo=timezone.utc))
+            except (TypeError, ValueError):
+                pass
+    return min(dates) if dates else None
+
+
+def crossref_record(item):
+    title = markup_to_text(" ".join(item.get("title") or []))
+    authors = [" ".join(f"{a.get('given', '')} {a['family']}".split())
+               for a in item.get("author") or [] if a.get("family")]
+    return title, authors, markup_to_text(item.get("abstract")), crossref_date(item)
+
+
+def ssrn_candidate(item):
+    title, authors, abstract, date = crossref_record(item)
+    doi = item.get("DOI", "")
+    m = re.search(r"ssrn\.(\d+)", doi, re.I)
+    url = (f"https://papers.ssrn.com/sol3/papers.cfm?abstract_id={m.group(1)}" if m
+           else f"https://doi.org/{doi}")
+    return {"title": title, "authors": authors, "abstract": abstract, "url": url, "published": date}
+
+
+def ssrn_by_title(title, names):
+    items = crossref_query({"query.bibliographic": title, "query.author": " ".join(sorted(names)),
+                            "filter": f"prefix:{SSRN_DOI_PREFIX}", "rows": 10})
+    return [ssrn_candidate(i) for i in items]
+
+
+def ssrn_by_authors(names, date, years_before):
+    filters = [f"prefix:{SSRN_DOI_PREFIX}"]
+    if date:
+        start = date.replace(year=date.year - years_before, month=1, day=1)
+        end = date.replace(year=date.year + YEARS_AFTER, month=12, day=31)
+        filters += [f"from-pub-date:{start:%Y-%m-%d}", f"until-pub-date:{end:%Y-%m-%d}"]
+    items = crossref_query({"query.author": " ".join(sorted(names)), "filter": ",".join(filters),
+                            "rows": 40})
+    return [ssrn_candidate(i) for i in items]
+
+
+def read_journal_items(source):
+    """Newest research articles of the journals in source['issn'], from Crossref."""
+    filters = ",".join([f"issn:{i}" for i in source["issn"]] + ["type:journal-article"])
+    items = crossref_query({"filter": filters, "sort": "published", "order": "desc",
+                            "rows": source.get("max_papers", 25)})
+    papers = []
+    for item in items:
+        title, authors, abstract, date = crossref_record(item)
+        if not title or not authors or NOT_A_PAPER.match(title):
+            continue
+        papers.append({"title": title, "link": f"https://doi.org/{item['DOI']}", "date": date,
+                       "description": shorten(abstract), "abstract": abstract, "authors": authors})
+    return papers
+
+
+# --- RSS feeds of papers ------------------------------------------------------
+
+def read_rss_items(url):
+    """Items of an RSS 2.0 feed: title, link, date, description, authors."""
+    root = fetch_xml(url)
+    items = []
+    for it in root.iter("item"):
+        date = None
+        if it.findtext("pubDate"):
+            try:
+                date = parsedate_to_datetime(it.findtext("pubDate")).astimezone(timezone.utc)
+            except (TypeError, ValueError):
+                pass
+        items.append({
+            "title": " ".join((it.findtext("title") or "").split()),
+            "link": (it.findtext("link") or "").strip(),
+            "date": date,
+            "description": " ".join((it.findtext("description") or "").split()) or None,
+            "authors": [" ".join(a.text.split()) for a in it.iter("author") if (a.text or "").strip()],
+        })
+    return items
+
+
+# --- matching -----------------------------------------------------------------
+
+TITLE_SEARCH = {"arxiv": arxiv_by_title, "ssrn": ssrn_by_title}
+AUTHOR_SEARCH = {"arxiv": arxiv_by_authors, "ssrn": ssrn_by_authors}
+
+
+def pick_by_title(title, names, candidates):
+    """Step 1: a preprint with a nearly identical title and at least one shared author."""
     want, best = norm_text(title), None
-    for c in arxiv_query(query, 10):
+    for c in candidates:
         score = SequenceMatcher(None, want, norm_text(c["title"])).ratio()
         if score >= TITLE_MATCH and names & surnames(c["authors"]):
             if best is None or score > best[0]:
@@ -513,26 +703,19 @@ def match_by_title(title, authors):
     return best[1] if best else None
 
 
-def match_by_topic(title, description, authors, date):
-    """Step 2: among recent preprints by all the same co-authors, the one on the same topic.
-
-    Only for papers with two or more authors: a single prolific author has too
-    many unrelated preprints to tell them apart safely.
-    """
-    names = surnames(authors)
-    if len(names) < 2:
-        return None
-    query = " AND ".join(f"au:{n}" for n in sorted(names))
-    want = keywords(f"{title} {description or ''}")
+def pick_by_topic(text, names, date, years_before, candidates):
+    """Step 2: among preprints by all the same co-authors, the one on the same topic."""
+    want = keywords(text)
     if not want:
         return None
-    scored = []
-    for c in arxiv_query(query, 50, sortBy="submittedDate", sortOrder="descending"):
-        if not names <= surnames(c["authors"]):
+    scored, seen = [], set()
+    for c in candidates:
+        if c["url"] in seen or not names <= surnames(c["authors"]):
             continue
+        seen.add(c["url"])
         if date and c["published"]:
             years = (c["published"] - date).days / 365.25
-            if years < -YEARS_BEFORE or years > YEARS_AFTER:
+            if years < -years_before or years > YEARS_AFTER:
                 continue
         have = keywords(f"{c['title']} {c['abstract']}")
         scored.append((len(want & have) / len(want), c))
@@ -544,26 +727,51 @@ def match_by_topic(title, description, authors, date):
     return scored[0][1]
 
 
-def find_preprint(paper):
-    """The arXiv preprint of a paper, or None. Raises on network errors."""
+def find_preprint(paper, order, years_before):
+    """A free preprint of a paper on arXiv or SSRN, or None. Raises on network errors.
+
+    Title search on every service first, then the co-author search, which is
+    only done for papers with two or more authors: a single prolific author has
+    too many unrelated preprints to tell them apart safely.
+    """
     title = clean_paper_title(paper["title"], paper["authors"])
-    match = (match_by_title(title, paper["authors"])
-             or match_by_topic(title, paper["description"], paper["authors"], paper["date"]))
+    names = surnames(paper["authors"])
+    if not names:
+        return None
+    for service in order:
+        match = pick_by_title(title, names, TITLE_SEARCH[service](title, names))
+        if match:
+            break
+    else:
+        match = None
+        if len(names) >= 2:
+            text = f"{title} {paper.get('abstract') or paper.get('description') or ''}"
+            for service in order:
+                found = AUTHOR_SEARCH[service](names, paper["date"], years_before)
+                match = pick_by_topic(text, names, paper["date"], years_before, found)
+                if match:
+                    break
     if match:
         match = {k: v for k, v in match.items() if k != "published"}
     return match
 
 
 def preprint_html(match, original_link, original_name):
-    pdf = match["url"].replace("/abs/", "/pdf/")
+    links = []
+    if "arxiv.org" in match["url"]:
+        links += [f'<a href="{escape(match["url"].replace("/abs/", "/pdf/"))}">PDF</a>',
+                  f'<a href="{escape(match["url"])}">arXiv page</a>']
+    else:
+        links.append(f'<a href="{escape(match["url"])}">SSRN page (free PDF download)</a>')
+    links.append(f'<a href="{escape(original_link)}">{escape(original_name)}</a>')
+    abstract = f"<p>{escape(match['abstract'])}</p>" if match.get("abstract") else ""
+    sep = " · "
     return (f"<p><strong>Authors:</strong> {escape(', '.join(match['authors']))}</p>"
-            f"<p>{escape(match['abstract'])}</p>"
-            f'<p><a href="{escape(pdf)}">PDF</a> \u00b7 <a href="{escape(match["url"])}">arXiv page</a>'
-            f' \u00b7 <a href="{escape(original_link)}">{escape(original_name)}</a></p>')
+            f"{abstract}<p>{sep.join(links)}</p>")
 
 
 def preprint_items(source):
-    """Papers from source['rss'] that have a free arXiv preprint.
+    """Papers from the source that have a free preprint on arXiv or SSRN.
 
     Results are remembered in docs/<file>.cache.json so each paper is searched
     once; papers without a preprint are searched again every RETRY_DAYS days.
@@ -576,14 +784,19 @@ def preprint_items(source):
         cache = {}
     before = json.dumps(cache, sort_keys=True)
 
-    papers = [p for p in read_rss_items(source["rss"])
-              if any(x in p["link"] for x in source["paper_paths"])
-              and not any(x in p["link"] for x in source.get("skip_paths", []))]
-    if not papers:
-        raise RuntimeError("no papers in the source feed, its layout may have changed")
+    if source.get("issn"):
+        papers = read_journal_items(source)
+    else:
+        papers = [p for p in read_rss_items(source["rss"])
+                  if any(x in p["link"] for x in source["paper_paths"])
+                  and not any(x in p["link"] for x in source.get("skip_paths", []))]
+        if not papers:
+            raise RuntimeError("no papers in the source feed, its layout may have changed")
 
+    order = source.get("search", ["arxiv", "ssrn"])
+    years_before = source.get("years_before", YEARS_BEFORE)
     today = datetime.now(timezone.utc).date()
-    searches, waiting, busy = 0, 0, False
+    searches = waiting = 0
     for p in papers:
         entry = cache.get(p["link"])
         if entry and entry.get("match"):
@@ -593,19 +806,21 @@ def preprint_items(source):
             age = (today - p["date"].date()).days if p["date"] else 0
             if (today - checked).days < RETRY_DAYS or age > RETRY_MAX_AGE_DAYS:
                 continue
-        if busy or searches >= MAX_PAPERS_PER_RUN:
+        if RUN["busy"] or RUN["searched"] >= MAX_PAPERS_PER_RUN:
             waiting += 1  # not remembered, so it is searched in a later run
             continue
+        RUN["searched"] += 1
         searches += 1
         try:
-            match = find_preprint(p)
-        except ArxivBusy as e:
-            print(f"  arXiv is refusing requests ({e}), the rest waits for the next run",
-                  file=sys.stderr)
-            busy, searches, waiting = True, searches - 1, waiting + 1
+            match = find_preprint(p, order, years_before)
+        except ServiceBusy as e:
+            print(f"  {e} is refusing requests, the rest waits for the next run", file=sys.stderr)
+            RUN["busy"] = str(e)
+            RUN["searched"] -= 1
+            searches, waiting = searches - 1, waiting + 1
             continue
         except Exception as e:  # noqa: BLE001
-            print(f"  could not search arXiv for {p['link']}: {e}", file=sys.stderr)
+            print(f"  could not search preprints for {p['link']}: {e}", file=sys.stderr)
             continue  # not remembered, so it is tried again next run
         entry = {"checked": today.isoformat(), "match": match}
         if match:
@@ -613,7 +828,7 @@ def preprint_items(source):
                               "date": p["date"].isoformat() if p["date"] else None}
         cache[p["link"]] = entry
 
-    # keep every found preprint; forget misses that dropped out of the source feed
+    # keep every found preprint; forget misses that dropped out of the source list
     current = {p["link"] for p in papers}
     cache = {k: v for k, v in cache.items() if v.get("match") or k in current}
 
@@ -637,8 +852,8 @@ def preprint_items(source):
     if json.dumps(cache, sort_keys=True) != before:
         cache_path.write_text(json.dumps(cache, indent=1, sort_keys=True, ensure_ascii=False) + "\n",
                               encoding="utf-8")
-    return items, (f" ({len(papers)} papers in the source feed, {searches} searched on arXiv"
-                   f" this run, {waiting} waiting for the next runs)")
+    return items, (f" ({len(papers)} papers in the source, {searches} searched this run,"
+                   f" {waiting} waiting for the next runs)")
 
 
 def build_rss(source, items):
@@ -668,14 +883,21 @@ def build_rss(source, items):
 
 # ---------------------------------------------------------------------------
 # Sources. To add a site, copy a block and change the fields.
-#   file          - feed file name (served at .../feeds/<file>)
-#   page          - page that lists the articles
-#   article_paths - URL fragments that identify article links
-#   full_text     - fetch each article and put its full text into the feed
+#   file            - feed file name (served at .../feeds/<file>)
+#   page            - page that lists the articles
+#   article_paths   - URL fragments that identify article links
+#   article_pattern - or instead a regular expression for article links
+#   date_position   - "before"/"after": the date is printed above/below the
+#                     article link rather than inside it
+#   require_date    - only articles with a date
+#   max_items       - keep only this many newest articles
+#   full_text       - fetch each article and put its full text into the feed
+#   reuse_full_text - fetch the full text only once per article
 #
-# "kind": "preprints" sources instead read the RSS feed in "rss", keep links
-# matching "paper_paths" (minus "skip_paths"), and publish only the papers
-# that have a free preprint on arXiv.
+# "kind": "preprints" sources take a list of paywalled papers, either the RSS
+# feed in "rss" (links matching "paper_paths", minus "skip_paths") or the
+# newest articles of the journals with the ISSNs in "issn", and publish only
+# the papers that have a free preprint. "search" sets where to look first.
 # ---------------------------------------------------------------------------
 SOURCES = [
     {
@@ -689,16 +911,114 @@ SOURCES = [
         "require_date": True,
         "full_text": True,
     },
+
+    # --- free preprints of paywalled papers ----------------------------------
     {
         "kind": "preprints",
         "file": "risk-cutting-edge.xml",
         "title": "Risk.net Cutting Edge - Free Preprints",
-        "description": "Risk.net Cutting Edge papers that have a free preprint on arXiv",
+        "description": "Risk.net Cutting Edge papers that have a free preprint on arXiv or SSRN",
         "page": "https://www.risk.net/cutting-edge",
         "rss": "https://www.risk.net/feeds/rss/category/cutting-edge",
         "paper_paths": ["risk.net/cutting-edge/"],
         "skip_paths": ["/cutting-edge/views/"],   # podcasts and opinion columns
+        "search": ["arxiv", "ssrn"],
         "original_name": "Risk.net Cutting Edge",
+    },
+    {
+        "kind": "preprints",
+        "file": "journal-of-finance.xml",
+        "title": "Journal of Finance - Free Preprints",
+        "description": "Journal of Finance articles that have a free preprint on SSRN or arXiv",
+        "page": "https://onlinelibrary.wiley.com/journal/15406261",
+        "issn": ["0022-1082", "1540-6261"],
+        "search": ["ssrn", "arxiv"],
+        "years_before": 5,   # finance papers often circulate on SSRN for years
+        "original_name": "Journal of Finance",
+    },
+    {
+        "kind": "preprints",
+        "file": "journal-of-portfolio-management.xml",
+        "title": "Journal of Portfolio Management - Free Preprints",
+        "description": "Journal of Portfolio Management articles that have a free preprint on SSRN or arXiv",
+        "page": "https://www.pm-research.com/content/iijpormgmt",
+        "issn": ["0095-4918", "2168-8656"],
+        "search": ["ssrn", "arxiv"],
+        "years_before": 3,
+        "original_name": "Journal of Portfolio Management",
+    },
+    {
+        "kind": "preprints",
+        "file": "quantitative-finance.xml",
+        "title": "Quantitative Finance - Free Preprints",
+        "description": "Quantitative Finance (journal) articles that have a free preprint on arXiv or SSRN",
+        "page": "https://www.tandfonline.com/journals/rquf20",
+        "issn": ["1469-7688", "1469-7696"],
+        "search": ["arxiv", "ssrn"],
+        "years_before": 3,
+        "original_name": "Quantitative Finance",
+    },
+
+    # --- research published by investment firms ------------------------------
+    {
+        "file": "oaktree-memos.xml",
+        "title": "Oaktree - Howard Marks Memos",
+        "description": "Memos from Howard Marks, co-chairman of Oaktree Capital",
+        "page": "https://www.oaktreecapital.com/insights/memos",
+        "article_pattern": r"oaktreecapital\.com/insights/memo/[^/?#]+$",
+        "date_position": "before",
+        "require_date": True,
+        "max_items": 15,
+        "full_text": True,
+        "reuse_full_text": True,
+    },
+    {
+        "file": "aqr-research.xml",
+        "title": "AQR - Research",
+        "description": "Research papers and articles from AQR Capital Management",
+        "page": "https://www.aqr.com/Insights/Research",
+        "article_pattern": r"aqr\.com/Insights/Research/[^/?#]+/[^/?#]+$",
+        "date_position": "after",
+        "require_date": True,
+        "max_items": 15,
+        "full_text": True,
+        "reuse_full_text": True,
+    },
+    {
+        "file": "bridgewater-research.xml",
+        "title": "Bridgewater - Research & Insights",
+        "description": "Research and insights from Bridgewater Associates",
+        "page": "https://www.bridgewater.com/research-and-insights",
+        "article_pattern": r"bridgewater\.com/research-and-insights/[^/?#]+$",
+        "date_position": "after",
+        "require_date": True,
+        "max_items": 15,
+        "full_text": True,
+        "reuse_full_text": True,
+    },
+    {
+        "file": "two-sigma-insights.xml",
+        "title": "Two Sigma - Insights",
+        "description": "Articles and research from Two Sigma",
+        "page": "https://www.twosigma.com/insights/",
+        "article_pattern": r"twosigma\.com/articles/[^/?#]+/?$",
+        "date_position": "after",
+        "require_date": True,
+        "max_items": 15,
+        "full_text": True,
+        "reuse_full_text": True,
+    },
+    {
+        "file": "apollo-daily-spark.xml",
+        "title": "Apollo - The Daily Spark",
+        "description": "Torsten Slok's daily chart and commentary from Apollo",
+        "page": "https://www.apollo.com/wealth/insights-news/insights/daily-spark",
+        "article_pattern": r"/insights/daily-spark/[^/?#]+$",
+        "date_position": "before",
+        "require_date": True,
+        "max_items": 15,
+        "full_text": True,
+        "reuse_full_text": True,
     },
 ]
 
