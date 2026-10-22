@@ -1,62 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-<title>Arena Physica - News</title>
-<link>https://www.arenaphysica.com/news</link>
-<description>News and publications from Arena Physica</description>
+<title>Arena Physica - Publications</title>
+<link>https://www.arenaphysica.com/publications</link>
+<description>Publications and papers from Arena Physica</description>
 <item>
-<title>In the Arena: Jean Weatherwax</title>
-<link>https://www.arenaphysica.com/articles/in-the-arena-jean-weatherwax</link>
-<guid isPermaLink="true">https://www.arenaphysica.com/articles/in-the-arena-jean-weatherwax</guid>
-<pubDate>Wed, 14 Oct 2026 12:00:00 +0000</pubDate>
+<title>Edge Elements: How FEM Solvers Represent Electromagnetic Fields</title>
+<link>https://www.arenaphysica.com/publications/fem-edge-elements</link>
+<guid isPermaLink="true">https://www.arenaphysica.com/publications/fem-edge-elements</guid>
+<description>A brief introduction to Nédélec edge elements and why standard electromagnetic simulation needs edge-based degrees of freedom.</description>
+<pubDate>Thu, 01 Oct 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
-<title>Arena Physica Collaborates with Microsoft to Bring Electromagnetic Superintelligence to Microsoft Discovery</title>
-<link>https://www.arenaphysica.com/articles/heaviside-microsoft-discovery-collaboration</link>
-<guid isPermaLink="true">https://www.arenaphysica.com/articles/heaviside-microsoft-discovery-collaboration</guid>
-<pubDate>Tue, 13 Oct 2026 12:00:00 +0000</pubDate>
+<title>Simulator-Refined Diffusion for Radio-Frequency Inverse Design</title>
+<link>https://arxiv.org/abs/2609.38363</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2609.38363</guid>
+<description>This paper proposes Simulator-Refined Diffusion (SRD), a novel combination of a low-fidelity differentiable surrogate and a high-fidelity non-differentiable simulator within the diffusion sampling process.</description>
+<pubDate>Wed, 30 Sep 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
-<title>In the Arena: Adam Push</title>
-<link>https://www.arenaphysica.com/articles/in-the-arena-adam-push</link>
-<guid isPermaLink="true">https://www.arenaphysica.com/articles/in-the-arena-adam-push</guid>
-<pubDate>Wed, 23 Sep 2026 12:00:00 +0000</pubDate>
+<title>Can the US build a DJI?</title>
+<link>https://www.arenaphysica.com/publications/dji-teardown</link>
+<guid isPermaLink="true">https://www.arenaphysica.com/publications/dji-teardown</guid>
+<description>How DJI achieves its exceptional margins, from a teardown of two popular drones.</description>
+<pubDate>Wed, 16 Sep 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
-<title>In the Arena: Ashwin Mishra</title>
-<link>https://www.arenaphysica.com/articles/in-the-arena-ashwin-mishra</link>
-<guid isPermaLink="true">https://www.arenaphysica.com/articles/in-the-arena-ashwin-mishra</guid>
-<pubDate>Wed, 23 Sep 2026 12:00:00 +0000</pubDate>
-</item>
-<item>
-<title>In the Arena: Nathan Mirman, Ph.D.</title>
-<link>https://www.arenaphysica.com/articles/in-the-arena-nathan-mirman</link>
-<guid isPermaLink="true">https://www.arenaphysica.com/articles/in-the-arena-nathan-mirman</guid>
-<pubDate>Mon, 07 Sep 2026 12:00:00 +0000</pubDate>
-</item>
-<item>
-<title>In the Arena: Boyuan Zhang, Ph.D.</title>
-<link>https://www.arenaphysica.com/articles/in-the-arena-boyuan-zhang</link>
-<guid isPermaLink="true">https://www.arenaphysica.com/articles/in-the-arena-boyuan-zhang</guid>
-<pubDate>Fri, 21 Aug 2026 12:00:00 +0000</pubDate>
-</item>
-<item>
-<title>In the Arena: Tony Leapo</title>
-<link>https://www.arenaphysica.com/articles/in-the-arena-tony-leapo</link>
-<guid isPermaLink="true">https://www.arenaphysica.com/articles/in-the-arena-tony-leapo</guid>
-<pubDate>Thu, 20 Aug 2026 12:00:00 +0000</pubDate>
-</item>
-<item>
-<title>In the Arena: Catherine Kauber</title>
-<link>https://www.arenaphysica.com/articles/in-the-arena-catherine-kauber</link>
-<guid isPermaLink="true">https://www.arenaphysica.com/articles/in-the-arena-catherine-kauber</guid>
-<pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+<title>Introducing Heaviside-1</title>
+<link>https://www.arenaphysica.com/publications/heaviside-1</link>
+<guid isPermaLink="true">https://www.arenaphysica.com/publications/heaviside-1</guid>
+<description>A new class of foundation model for 3D electromagnetic fields with a step change in capability and out-of-distribution generalization.</description>
+<pubDate>Tue, 01 Sep 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
 <title>What is a Smith Chart?</title>
 <link>https://arenaphysica.com/publications/smith-charts</link>
 <guid isPermaLink="true">https://arenaphysica.com/publications/smith-charts</guid>
+<description>An interactive introduction to the chart at the heart of RF engineering.</description>
 <pubDate>Fri, 10 Jul 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Converting Compute into Performance in a Data-Constrained World</title>
+<link>https://arxiv.org/abs/2605.09189</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2605.09189</guid>
+<description>Research paper exploring how compute scales into model performance when training data is constrained.</description>
+<pubDate>Wed, 06 May 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Inverse Design of Multi-Layer Sub-Pixel-Resolution RF Passives</title>
+<link>https://arxiv.org/abs/2605.08233</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2605.08233</guid>
+<description>Grayscale diffusion with flexible S-parameter conditioning for inverse design of RF passive components.</description>
+<pubDate>Wed, 06 May 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Introducing Atlas RF Studio: Toward a Foundation Model for Electromagnetics</title>
+<link>https://www.arenaphysica.com/publications/rf-studio</link>
+<guid isPermaLink="true">https://www.arenaphysica.com/publications/rf-studio</guid>
+<description>The full technical deep dive: how we built the data factory, trained Heaviside-0 and Marconi-0, and why fields are the right training signal for generalization.</description>
+<pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
 </item>
 </channel>
 </rss>
