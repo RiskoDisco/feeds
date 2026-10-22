@@ -4,5 +4,26 @@
 <title>Quantitative Finance - Free Preprints</title>
 <link>https://www.tandfonline.com/journals/rquf20</link>
 <description>Quantitative Finance (journal) articles that have a free preprint on arXiv or SSRN</description>
+<item>
+<title>The Dollar's Double Life for Cross-Currency Basis Swaps: A Closer Look at G10 Panels</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7536759</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7536759</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Daniel Felix Ahelegbey, Florian Gerth, Oyakhilome Wallace Ibhagui, Minqi Shu&lt;/p&gt;&lt;p&gt;We present a model in which cross-currency basis swap spreads arise from dollar regimedependent hedging behavior by global investors. Using a panel of G10 currencies vis-à-vis the US dollar, we show that, during the LIBOR period, dollar appreciations widen the basis in low-dollar regimes, while their effects weaken or even reverse in high-dollar regimes, resulting in basis tightening. This asymmetry is strongest at the short end of the basis curve, suggesting a particularly important role for short-term funding and liquidity pressures in the observed term-structure response. In the post-LIBOR era, however, these threshold effects become less stable and are often statistically insignificant, possibly reflecting both the shorter sample and changes in benchmark conventions. Our findings reveal the dollar's two-faced nature: similar dollar movements can generate markedly different common G10 basis responses depending on the prevailing dollar regime.&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7536759"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2744185"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Wed, 21 Oct 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>When Does Centrality Matter for Portfolio Selection?</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5958254</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5958254</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Roope Rihtamo, Harto Saarinen, Henri Nyberg, Joni Virta&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5958254"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2729191"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Tue, 20 Oct 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Sensitivity of the Euro OIS Term Structure to ECB Policy Rate Surprises&amp;nbsp;</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6049574</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6049574</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Stefano Herzel, Marco Nicolosi&lt;/p&gt;&lt;p&gt;We analyze the sensitivity of the euro-area yield curve to revisions in market expectations of the ECB policy rate. Using changes in the maintenance-period forward OIS as a market-based measure of policy-rate surprises, we document that yield responses vary systematically across maturities. To interpret these patterns, we adopt a short-rate model with stochastic jumps occurring only at scheduled ECB meeting dates and derive closed-form expressions for the conditional sensitivity of yields to changes in the expected jump size. We compare the model-implied term-structure responses with realized yield changes on days of large revisions in expectations. The model reproduces the cross-sectional shape and magnitude of observed sensitivities, especially the pronounced peak at intermediate maturities, underscoring the importance of incorporating scheduled jump times when modeling interest-rate dynamics.&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6049574"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2729190"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Tue, 13 Oct 2026 12:00:00 +0000</pubDate>
+</item>
 </channel>
 </rss>

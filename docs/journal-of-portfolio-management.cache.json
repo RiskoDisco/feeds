@@ -1,4 +1,43 @@
 {
+ "https://doi.org/10.3905/jpm.2026.059": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.060": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.061": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.062": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.063": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Hubert Dichtl",
+    "Wolfgang Drobetz",
+    "Tizian Otto",
+    "Tatjana Xenia Puhan"
+   ],
+   "title": "Bootstrapping and Bias: The Economic Costs of Misjudging Downside Risk",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5181807"
+  },
+  "paper": {
+   "date": "2026-09-12T12:00:00+00:00",
+   "description": null,
+   "title": "Bootstrapping and Bias: The Economic Costs of Misjudging Downside Risk"
+  }
+ },
+ "https://doi.org/10.3905/jpm.2026.064": {
+  "checked": "2026-10-22",
+  "match": null
+ },
  "https://doi.org/10.3905/jpm.2026.065": {
   "checked": "2026-10-22",
   "match": null

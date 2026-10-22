@@ -1,0 +1,61 @@
+{
+ "https://doi.org/10.1080/14697688.2026.2720658": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2729190": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We analyze the sensitivity of the euro-area yield curve to revisions in market expectations of the ECB policy rate. Using changes in the maintenance-period forward OIS as a market-based measure of policy-rate surprises, we document that yield responses vary systematically across maturities. To interpret these patterns, we adopt a short-rate model with stochastic jumps occurring only at scheduled ECB meeting dates and derive closed-form expressions for the conditional sensitivity of yields to changes in the expected jump size. We compare the model-implied term-structure responses with realized yield changes on days of large revisions in expectations. The model reproduces the cross-sectional shape and magnitude of observed sensitivities, especially the pronounced peak at intermediate maturities, underscoring the importance of incorporating scheduled jump times when modeling interest-rate dynamics.",
+   "authors": [
+    "Stefano Herzel",
+    "Marco Nicolosi"
+   ],
+   "title": "Sensitivity of the Euro OIS Term Structure to ECB Policy Rate Surprises&nbsp;",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6049574"
+  },
+  "paper": {
+   "date": "2026-10-13T12:00:00+00:00",
+   "description": null,
+   "title": "Sensitivity of the Euro OIS term structure to ECB policy rate surprises"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2729191": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Roope Rihtamo",
+    "Harto Saarinen",
+    "Henri Nyberg",
+    "Joni Virta"
+   ],
+   "title": "When Does Centrality Matter for Portfolio Selection?",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5958254"
+  },
+  "paper": {
+   "date": "2026-10-20T12:00:00+00:00",
+   "description": null,
+   "title": "When does centrality matter in portfolio choice?"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2744185": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We present a model in which cross-currency basis swap spreads arise from dollar regimedependent hedging behavior by global investors. Using a panel of G10 currencies vis-à-vis the US dollar, we show that, during the LIBOR period, dollar appreciations widen the basis in low-dollar regimes, while their effects weaken or even reverse in high-dollar regimes, resulting in basis tightening. This asymmetry is strongest at the short end of the basis curve, suggesting a particularly important role for short-term funding and liquidity pressures in the observed term-structure response. In the post-LIBOR era, however, these threshold effects become less stable and are often statistically insignificant, possibly reflecting both the shorter sample and changes in benchmark conventions. Our findings reveal the dollar's two-faced nature: similar dollar movements can generate markedly different common G10 basis responses depending on the prevailing dollar regime.",
+   "authors": [
+    "Daniel Felix Ahelegbey",
+    "Florian Gerth",
+    "Oyakhilome Wallace Ibhagui",
+    "Minqi Shu"
+   ],
+   "title": "The Dollar's Double Life for Cross-Currency Basis Swaps: A Closer Look at G10 Panels",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7536759"
+  },
+  "paper": {
+   "date": "2026-10-21T12:00:00+00:00",
+   "description": null,
+   "title": "The dollar's double life for cross-currency basis swaps: a closer look at G10 panels"
+  }
+ }
+}
