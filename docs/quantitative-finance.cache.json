@@ -1,4 +1,32 @@
 {
+ "https://doi.org/10.1080/14697688.2026.2694470": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "In this paper we study the quality of model-free valuation approaches for financial derivatives by systematically evaluating the difference between model-free super-hedging strategies and the realized payoff of financial derivatives using historical option prices from several constituents of the S&P 500 between 2018 and 2022. Our study allows in particular to describe the realized gap between payoff and model-free hedging strategy empirically so that we can quantify to which degree model-free approaches are overly conservative. Our results imply that the model-free hedging approach is only marginally more conservative than industry-standard models such as the Heston-model while being model-free at the same time. This finding, its statistical description and the model-independence of the hedging approach enable us to construct an explicit trading strategy which, as we demonstrate, can be profitably applied in financial markets, and additionally possesses the desirable feature with an explicit control of its downside risk due to its model-free construction preventing losses pathwise.",
+   "authors": [
+    "Zixing Chen",
+    "Yihan Qi",
+    "Shanlan Que",
+    "Julian Sester",
+    "Xiao Zhang"
+   ],
+   "title": "Empirical Analysis of the Model-Free Valuation Approach: Hedging Gaps, Conservatism, and Trading Opportunities",
+   "url": "https://arxiv.org/abs/2508.16595"
+  },
+  "paper": {
+   "date": "2026-08-14T12:00:00+00:00",
+   "description": null,
+   "title": "Empirical analysis of the model-free valuation approach: hedging gaps, conservatism, and trading opportunities"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2695392": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2696403": {
+  "checked": "2026-10-22",
+  "match": null
+ },
  "https://doi.org/10.1080/14697688.2026.2705206": {
   "checked": "2026-10-22",
   "match": {
@@ -17,11 +45,80 @@
    "title": "Multivariate quadratic Hawkes processes—part II: non-parametric empirical calibration"
   }
  },
+ "https://doi.org/10.1080/14697688.2026.2707212": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2708220": {
+  "checked": "2026-10-22",
+  "match": null
+ },
  "https://doi.org/10.1080/14697688.2026.2708221": {
   "checked": "2026-10-22",
   "match": null
  },
  "https://doi.org/10.1080/14697688.2026.2708228": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2709673": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Biao Chen",
+    "Junjie LIU",
+    "Michi Nishihara",
+    "Chuanqian Zhang"
+   ],
+   "title": "Dynamic Capacity Investment and Debt Financing",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5393547"
+  },
+  "paper": {
+   "date": "2026-09-04T12:00:00+00:00",
+   "description": null,
+   "title": "Dynamic capacity investment and debt financing"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2710832": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "The Nested factor model was introduced by Chicheportiche et al. to represent non-linear correlations between stocks. Stock returns are explained by a standard factor model, but the (log)-volatilities of factors and residuals are themselves decomposed into factor modes, with a common dominant volatility mode affecting both market and sector factors but also residuals. Here, we consider the case of a single factor where the only dominant log-volatility mode is rough, with a Hurst exponent $H \\simeq 0.11$ and the log-volatility residuals are ''super-rough'' or ''multifractal'', with $H \\simeq 0$. We demonstrate that such a construction naturally accounts for the somewhat surprising stylized fact reported by Wu et al. , where it has been observed that the Hurst exponents of stock indexes are large compared to those of individual stocks. We propose a statistical procedure to estimate the Hurst factor exponent from the stock returns dynamics together with theoretical guarantees of its consistency. We demonstrate the effectiveness of our approach through numerical experiments and apply it to daily stock data from the S&P500 index. The estimated roughness exponents for both the factor and idiosyncratic components validate the assumptions underlying our model.",
+   "authors": [
+    "Othmane Zarhali",
+    "Cecilia Aubrun",
+    "Emmanuel Bacry",
+    "Jean-Philippe Bouchaud",
+    "Jean-François Muzy"
+   ],
+   "title": "A Nested Factor Model for Equity Markets: Reconciling Multifractal Stock Returns and Rough Index Volatilities",
+   "url": "https://arxiv.org/abs/2505.02678"
+  },
+  "paper": {
+   "date": "2026-09-04T12:00:00+00:00",
+   "description": null,
+   "title": "A nested factor model for equity markets: reconciling multifractal stock returns and rough index volatilities"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2714860": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Florian Bourgey",
+    "Jules Delemotte",
+    "Stefano De Marco"
+   ],
+   "title": "Refined Expansions of the Skew-Stickiness Ratio in Stochastic Volatility Models",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5387754"
+  },
+  "paper": {
+   "date": "2026-09-02T12:00:00+00:00",
+   "description": null,
+   "title": "Refined expansions of the skew-stickiness ratio in stochastic volatility models"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2715708": {
   "checked": "2026-10-22",
   "match": null
  },
@@ -46,6 +143,24 @@
  "https://doi.org/10.1080/14697688.2026.2720167": {
   "checked": "2026-10-22",
   "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2720623": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Machine learning (ML) methods have been successfully employed in identifying variables that can predict the equity premium of individual stocks. In this paper, we investigate if ML can also be helpful in selecting variables relevant for optimal portfolio choice. To address this question, we parameterize minimum-variance portfolio weights as a function of a large pool of firm-level characteristics as well as their second-order and cross-product transformations, yielding a total of 4,610 predictors. We find that the gains from employing ML to select relevant predictors are substantial: minimum-variance portfolios achieve lower risk relative to sparse specifications commonly considered in the literature, especially when non-linear terms are added to the predictor space. Moreover, some of the selected predictors that help decreasing portfolio risk also increase returns, leading to minimum-variance portfolios with good performance in terms of Shape ratios in some situations. Our evidence suggests that ad-hoc sparsity can be detrimental to the performance of minimum-variance characteristics-based portfolios.",
+   "authors": [
+    "Guilherme V. Moura",
+    "André P. Santos",
+    "Hudson S. Torrent"
+   ],
+   "title": "Variable selection for minimum-variance portfolios",
+   "url": "https://arxiv.org/abs/2508.14986"
+  },
+  "paper": {
+   "date": "2026-09-02T12:00:00+00:00",
+   "description": null,
+   "title": "Variable selection for minimum-variance portfolios"
+  }
  },
  "https://doi.org/10.1080/14697688.2026.2720658": {
   "checked": "2026-10-22",
