@@ -2,5 +2,84 @@
  "https://www.risk.net/cutting-edge/7962392/ai-as-pricing-law": {
   "checked": "2026-10-22",
   "match": null
+ },
+ "https://www.risk.net/cutting-edge/7963690/differential-machine-learning-with-a-difference": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Differential ML (Huge and Savine 2020) is a technique for training neural networks to provide fast approximations to complex simulation-based models for derivatives pricing and risk management. It uses price sensitivities calculated through pathwise adjoint differentiation to reduce pricing and hedging errors. However, for options with discontinuous payoffs, such as digital or barrier options, the pathwise sensitivities are biased, and incorporating them into the loss function can magnify errors. We consider alternative methods for estimating sensitivities and find that they can substantially reduce test errors in prices and in their sensitivities. Using differential labels calculated through the likelihood ratio method expands the scope of Differential ML to discontinuous payoffs. A hybrid method incorporates gamma estimates as well as delta estimates, providing further regularization.",
+   "authors": [
+    "Paul Glasserman",
+    "Siddharth Hemant Karmarkar"
+   ],
+   "title": "Differential ML with a Difference",
+   "url": "https://arxiv.org/abs/2512.05301"
+  },
+  "paper": {
+   "date": "2026-06-23T03:30:00+00:00",
+   "description": "A technique to improve approximations for pricing derivatives with discontinuous payoffs is introduced",
+   "title": "Differential machine learning with a difference"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7963816/tailoring-tails-within-the-mixture-model-framework": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://www.risk.net/cutting-edge/7963878/the-fundamental-representation-of-pricing-adjustments": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "This article consolidates and extends past work on derivative pricing adjustments, including XVA, by providing an encapsulating representation of the adjustment between any two derivative pricing functions, within an Ito SDE/parabolic PDE framework. We give examples of this representation encapsulating others from the past 20 years, ranging from a well known option pricing adjustment introduced by Gatheral, to the collection of semi-replication XVA originating from Burgard & Kjaer. We show that this fundamental representation can be applied to quantify and mitigate XVA model risk, providing a novel approach to estimating CVA wrong-way risk as an example application.",
+   "authors": [
+    "Benedict Burnett",
+    "Ryan McCrickerd",
+    "Benjamin Piau"
+   ],
+   "title": "The fundamental representation of pricing adjustments",
+   "url": "https://arxiv.org/abs/2503.14997"
+  },
+  "paper": {
+   "date": "2026-07-22T03:30:00+00:00",
+   "description": "A unified representation of derivative pricing adjustments is presented",
+   "title": "The fundamental representation of pricing adjustments"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7964011/optimal-quoting-under-adverse-selection-and-price-reading": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Over the past decade, many dealers have implemented algorithmic models to automatically respond to RFQs and manage flows originating from electronic platforms. In parallel, building on the foundational work of Ho and Stoll, and later Avellaneda and Stoikov, the academic literature on market making has expanded to address trade size distributions, client tiering, complex price dynamics, alpha signals and the internalisation versus externalisation dilemma in markets with dealer-to-client and interdealer-broker segments. In this paper, we tackle two critical dimensions: adverse selection, arising from the presence of informed traders, and price reading, whereby the market maker's own quotes reveal the direction of their inventory. These risks are well known to practitioners, who routinely face informed flows and algorithms capable of extracting signals from quoting behaviour. Yet they have received limited attention in the quantitative finance literature, beyond stylised toy models with limited actionability. Extending the existing literature, we propose a tractable framework that enables market makers to adjust their quotes with greater awareness of informational risk.",
+   "authors": [
+    "Alexander Barzykin",
+    "Philippe Bergault",
+    "Olivier Guéant",
+    "Malo Lemmel"
+   ],
+   "title": "Optimal Quoting under Adverse Selection and Price Reading",
+   "url": "https://arxiv.org/abs/2508.20225"
+  },
+  "paper": {
+   "date": "2026-08-19T10:36:53+00:00",
+   "description": "A market-making model is introduced to account for significant real-world effects",
+   "title": "Optimal quoting under adverse selection and price reading"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7964125/reconciling-p-and-q-calibration-with-path-dependent-volatility": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://www.risk.net/cutting-edge/7964165/beyond-the-black-box-interpretability-of-llms-in-finance": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Large Language Models (LLMs) exhibit remarkable capabilities across a spectrum of tasks in financial services, including report generation, chatbots, sentiment analysis, regulatory compliance, investment advisory, financial knowledge retrieval, and summarization. However, their intrinsic complexity and lack of transparency pose significant challenges, especially in the highly regulated financial sector, where interpretability, fairness, and accountability are critical. As far as we are aware, this paper presents the first application in the finance domain of understanding and utilizing the inner workings of LLMs through mechanistic interpretability, addressing the pressing need for transparency and control in AI systems. Mechanistic interpretability is the most intuitive and transparent way to understand LLM behavior by reverse-engineering their internal workings. By dissecting the activations and circuits within these models, it provides insights into how specific features or components influence predictions - making it possible not only to observe but also to modify model behavior. In this paper, we explore the theoretical aspects of mechanistic interpretability and demonstrate its practical relevance through a range of financial use cases and experiments, including applications in trading strategies, sentiment analysis, bias, and hallucination detection. While not yet widely adopted, mechanistic interpretability is expected to become increasingly vital as adoption of LLMs increases. Advanced interpretability tools can ensure AI systems remain ethical, transparent, and aligned with evolving financial regulations. In this paper, we have put special emphasis on how these techniques can help unlock interpretability requirements for regulatory and compliance purposes - addressing both current needs and anticipating future expectations from financial regulators globally.",
+   "authors": [
+    "Hariom Tatsat",
+    "Ariye Shater"
+   ],
+   "title": "Beyond the Black Box: Interpretability of LLMs in Finance",
+   "url": "https://arxiv.org/abs/2505.24650"
+  },
+  "paper": {
+   "date": "2026-09-23T10:02:07+00:00",
+   "description": "Mechanistic interpretability identifies and locates modifications in computational mechanisms",
+   "title": "Beyond the black box: interpretability of LLMs in finance"
+  }
  }
 }
