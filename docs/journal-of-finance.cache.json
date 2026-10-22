@@ -1,4 +1,23 @@
 {
+ "https://doi.org/10.1111/jofi.70080": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Firms tend to compete more aggressively when facing financial distress. This intensified competition reduces profit margins, pushing them further into distress and adversely affecting their industry peers. To study such feedback and contagion effects, we incorporate strategic competition in a dynamic model with long-term defaultable debt, exploring various peer interactions such as predation and price wars. The feedback effect represents a novel source of financial distress costs associated with leverage, which helps explain the negative profitability-leverage relation across industries. Owing to the contagion effect, firms’ optimal leverage is often excessively high from an industry perspective, undermining the industry’s financial stability.",
+   "authors": [
+    "Hui Chen",
+    "Winston Wei Dou",
+    "Hongye Guo",
+    "Yan Ji"
+   ],
+   "title": "Feedback and Contagion through Distressed Competition",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4325034"
+  },
+  "paper": {
+   "date": "2026-10-08T12:00:00+00:00",
+   "description": "Firms tend to compete more aggressively when facing financial distress. This intensified competition reduces profit margins, pushing them further into distress and adversely affecting their industry peers. To study such feedback and contagion effects, we incorporate strategic competition in a…",
+   "title": "Feedback and Contagion through Distressed Competition"
+  }
+ },
  "https://doi.org/10.1111/jofi.70082": {
   "checked": "2026-10-22",
   "match": {
@@ -15,6 +34,137 @@
    "date": "2026-10-14T12:00:00+00:00",
    "description": "We develop a model to study the efficiency of socially responsible investing (SRI) as a mechanism to control firms' externalities. When SRI is not too popular, responsible investors favor strategies that lead to a concentration of SRI in a subset of firms in the economy. This concentration can…",
    "title": "Externalities of Responsible Investments"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70083": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "<div> <div> <div> <div> <div> <p><span>I show that the recent returns to ESG investing are strongly driven by price impact from flows towards ESG portfolios. Using data on trades, I estimate the market’s ability to accommodate ESG flows, which is given by the elasticity of substitution between ESG and other stocks. I show that every dollar flowing towards a representative ESG portfolio increases the market value of ESG stocks by&nbsp;</span><span>$</span><span>0.8. The growing institutional flows into the ESG portfolio are the main driver of ESG returns and have caused an annual flow-driven return of 1.9%. In the absence of flows, ESG stocks would not have outperformed the market from 2012 to 2023.</span></p> </div> </div> </div> </div> </div>",
+   "authors": [
+    "Philippe van der Beck"
+   ],
+   "title": "Flow-Driven ESG Returns",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3929359"
+  },
+  "paper": {
+   "date": "2026-10-07T12:00:00+00:00",
+   "description": "I show that the recent returns to environmental, social, and governance (ESG) investing are strongly driven by price impact from flows toward ESG portfolios. Using data on trades, I estimate the market's ability to accommodate ESG flows, which is given by the elasticity of substitution between ESG…",
+   "title": "Flow‐Driven ESG Returns"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70084": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Jens Dick-Nielsen",
+    "Peter Feldhütter",
+    "David Lando"
+   ],
+   "title": "The Financial Premium",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4310758"
+  },
+  "paper": {
+   "date": "2026-10-08T12:00:00+00:00",
+   "description": "We show that bonds issued by financial firms have higher spreads than bonds issued by industrial firms with the same rating and maturity, a difference that we refer to as the financial premium. Over the period 1987 to 2020, in the United States, this premium is 43 basis points on average, with the…",
+   "title": "The Financial Premium"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70085": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We document that the convenience yield of U.S. Treasuries exhibits properties that are consistent with a hedging perspective of safe assets. The convenience yield tends to be low when the covariance of Treasury returns with the aggregate stock market returns is high. A decomposition of the aggregate stock-bond covariance into terms corresponding to the convenience yield, the frictionless risk-free rate, and default risk reveals that the covariance between stock returns and the convenience yield itself drives the effect in a substantive capacity. We show the convenience yield is reduced with heightened inflation expectations that erode the hedging properties of U.S. Treasuries and other fixed-income money-like assets, inducing a switch to alternatives such as gold; it is also reduced immediately prior to debt-ceiling standoffs and with increases in Treasury supply.",
+   "authors": [
+    "Viral V. Acharya",
+    "Toomas Laarits"
+   ],
+   "title": "When do Treasuries Earn the Convenience Yield? — A Hedging Perspective",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4631040"
+  },
+  "paper": {
+   "date": "2026-10-07T12:00:00+00:00",
+   "description": "We document that the convenience yield of U.S. Treasuries exhibits properties consistent with a hedging perspective of safe assets, that is, Treasuries are valued highly if they appreciate with poor aggregate shocks. In particular, the convenience yield tends to be low when the covariance of…",
+   "title": "When Do Treasuries Earn the Convenience Yield?—A Hedging Perspective"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70087": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Yaron Levi",
+    "Shlomo benartzi"
+   ],
+   "title": "Mind the App: Mobile Access to Financial Information and Consumer Behavior",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3557689"
+  },
+  "paper": {
+   "date": "2026-09-30T12:00:00+00:00",
+   "description": "We study whether easier monitoring of personal finances affects consumer spending. We use transaction data from an account aggregation company to study consumers who installed the mobile app after using the same service on a personal computer for several months. We utilize the staggered release of…",
+   "title": "Mind the App: Mobile Access to Financial Information and Consumer Behavior"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70089": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "How do recent advances in Generative AI affect firm value? We construct the first measure of <i>firms' workforce exposures</i> to Generative AI and show that an \"Artificial-Minus-Human'' (AMH) portfolio earned 5% in the two weeks following the release of ChatGPT. The labor-exposure effect is more pronounced for firms with greater data assets and is distinct from the effect of firms' product exposures to AI. We assess whether exposed workforces are substituted or complemented by Generative AI based on whether their exposed tasks are core or supplemental. Examining firms’ labor demand and profitability following the release of ChatGPT supports a labor-technology substitution channel.&nbsp;",
+   "authors": [
+    "Andrea L. Eisfeldt",
+    "Gregor Schubert",
+    "Miao Ben Zhang",
+    "Bledi Taska"
+   ],
+   "title": "Generative AI and Firm Values",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4436627"
+  },
+  "paper": {
+   "date": "2026-10-08T12:00:00+00:00",
+   "description": "How do recent advances in Generative Artificial Intelligence (AI) affect firm value? We construct the first measure of firms' workforce exposures to Generative AI and show that an “Artificial‐Minus‐Human” portfolio earned 5% in the two weeks following the release of ChatGPT. The labor‐exposure…",
+   "title": "Generative AI and Firm Values"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70090": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1111/jofi.70091": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1111/jofi.70092": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We present evidence that the nature of aggregate consumption dynamics change around the time the bond-stock correlation switches sign. We identify three regimes in a real-time, sequential learning framework: two highly persistent regimes where either permanent or transitory consumption shocks are relatively more dominant, and a disaster regime that is largely transitory. We study implications of this finding for asset prices. The transition from the second to the first regime in the late 1990s makes the correlation between equities and real bonds switch sign from positive to negative as in the data, thus providing an explanation for this fact from the perspective of real consumption dynamics. The findings extend to the international setting.",
+   "authors": [
+    "Mikhail Chernov",
+    "Lars A. Lochstoer",
+    "Dongho Song"
+   ],
+   "title": "The Real Channel for Nominal Bond-Stock Puzzles",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3893366"
+  },
+  "paper": {
+   "date": "2026-09-30T12:00:00+00:00",
+   "description": "We document that the nature of aggregate consumption dynamics changes when the bond‐stock correlation switches sign. We identify three regimes in a real‐time, sequential learning framework: two highly persistent regimes where permanent or transitory consumption shocks are more dominant, and a…",
+   "title": "The Real Channel for Nominal Bond‐Stock Puzzles"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70093": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Institutional investors are less likely to support shareholder proposals on environmental and social issues for firms headquartered in Republican-led states. The decline in support has become more pronounced in recent years, aligning with politicians emphasizing companies’ social responsibility efforts, and among firms receiving state-level subsidies and tax breaks. Investor support also varies with shifts in state leadership, dropping by 12 percentage points in the same state when Republicans are in control instead of Democrats. The findings indicate that institutional investors prioritize maximizing shareholder value and that politicians can influence investor votes by altering the value implications of shareholder proposals.",
+   "authors": [
+    "Todd A. Gormley",
+    "Manish Jha",
+    "Meng Wang"
+   ],
+   "title": "The Politicization of Social Responsibility",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4936905"
+  },
+  "paper": {
+   "date": "2026-09-30T12:00:00+00:00",
+   "description": "Institutional investors are less likely to support shareholder proposals on environmental and social issues for firms headquartered in Republican‐led states. The decline in support has become more pronounced in recent years, aligning with politicians emphasizing companies’ social responsibility…",
+   "title": "The Politicization of Social Responsibility"
   }
  },
  "https://doi.org/10.1111/jofi.70095": {
