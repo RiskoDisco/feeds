@@ -20,6 +20,7 @@ import re
 import sys
 import time
 import unicodedata
+import urllib.error
 import urllib.request
 import zlib
 import xml.etree.ElementTree as ET
@@ -95,22 +96,22 @@ def decode_body(raw, content_encoding, charset):
     return raw.decode(charset or "utf-8", errors="replace")
 
 
-def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT,
+def fetch(url, timeout=30, user_agent=USER_AGENT):
+    req = urllib.request.Request(url, headers={"User-Agent": user_agent,
                                                "Accept-Language": "en",
                                                "Accept-Encoding": "gzip"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
         return decode_body(resp.read(), resp.headers.get("Content-Encoding"),
                            resp.headers.get_content_charset())
 
 
-def fetch_xml(url):
+def fetch_xml(url, **kwargs):
     """Fetch and parse an XML document (RSS feed, arXiv API answer).
 
     If the site sends something else, the error says what it sent, so the
     Actions log shows the real cause.
     """
-    text = fetch(url).lstrip("﻿ \t\r\n")
+    text = fetch(url, **kwargs).lstrip("﻿ \t\r\n")
     try:
         return ET.fromstring(text)
     except ET.ParseError as e:
@@ -363,7 +364,14 @@ YEARS_BEFORE = 2          # preprint posted at most this long before the paper..
 YEARS_AFTER = 1           # ...or at most this long after it
 RETRY_DAYS = 7            # look again for a paper with no preprint after this many days
 RETRY_MAX_AGE_DAYS = 180  # stop looking for papers older than this
-ARXIV_PAUSE = 3           # seconds between arXiv requests, as arXiv asks
+# Being polite to arXiv: it refuses requests ("HTTP 429 Too Many Requests")
+# when a script asks too often, and GitHub's servers are shared by many scripts.
+ARXIV_PAUSE = 5           # seconds between arXiv requests
+ARXIV_TIMEOUT = 60        # seconds to wait for an answer
+ARXIV_RETRIES = 2         # extra tries after a refusal or a timeout...
+ARXIV_BACKOFF = 30        # ...waiting this many seconds, doubled each time
+MAX_PAPERS_PER_RUN = 6    # the rest wait for the next hourly run
+ARXIV_USER_AGENT = "RiskoDisco-feeds/1.0 (personal RSS feeds; https://github.com/RiskoDisco/feeds)"
 STOPWORDS = {"with", "from", "into", "under", "over", "between", "their", "them", "this",
              "that", "these", "those", "what", "when", "where", "which", "while", "about",
              "beyond", "using", "towards", "toward", "through", "within", "without",
@@ -432,16 +440,40 @@ def keywords(text):
             if len(w) >= 3 and w not in STOPWORDS and not w.isdigit()}
 
 
+class ArxivBusy(Exception):
+    """arXiv keeps refusing requests; stop asking until the next run."""
+
+
 def arxiv_query(query, max_results, **extra):
-    """Run one arXiv API search and return the papers it found."""
-    wait = ARXIV_PAUSE - (time.time() - _last_arxiv_request[0])
-    if wait > 0:
-        time.sleep(wait)
-    try:
-        params = {"search_query": query, "max_results": max_results, **extra}
-        root = fetch_xml(ARXIV_API + "?" + urlencode(params))
-    finally:
-        _last_arxiv_request[0] = time.time()
+    """Run one arXiv API search and return the papers it found.
+
+    Waits between requests, and after a refusal or a timeout waits longer and
+    tries again. Raises ArxivBusy if arXiv still refuses.
+    """
+    url = ARXIV_API + "?" + urlencode({"search_query": query, "max_results": max_results, **extra})
+    root = None
+    for attempt in range(ARXIV_RETRIES + 1):
+        wait = ARXIV_PAUSE - (time.time() - _last_arxiv_request[0])
+        if wait > 0:
+            time.sleep(wait)
+        try:
+            root = fetch_xml(url, timeout=ARXIV_TIMEOUT, user_agent=ARXIV_USER_AGENT)
+            break
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 502, 503, 504):
+                raise
+            reason = f"HTTP {e.code}"
+            retry_after = e.headers.get("Retry-After", "") if e.headers else ""
+        except (TimeoutError, urllib.error.URLError) as e:
+            if isinstance(e, urllib.error.URLError) and not isinstance(e.reason, TimeoutError):
+                raise
+            reason, retry_after = "timed out", ""
+        finally:
+            _last_arxiv_request[0] = time.time()
+        if attempt == ARXIV_RETRIES:
+            raise ArxivBusy(reason)
+        delay = int(retry_after) if retry_after.isdigit() else ARXIV_BACKOFF * 2 ** attempt
+        time.sleep(min(delay, 300))
     found = []
     for e in root.findall(f"{ATOM}entry"):
         abs_url = (e.findtext(f"{ATOM}id") or "").strip()
@@ -551,7 +583,7 @@ def preprint_items(source):
         raise RuntimeError("no papers in the source feed, its layout may have changed")
 
     today = datetime.now(timezone.utc).date()
-    searches = 0
+    searches, waiting, busy = 0, 0, False
     for p in papers:
         entry = cache.get(p["link"])
         if entry and entry.get("match"):
@@ -561,9 +593,17 @@ def preprint_items(source):
             age = (today - p["date"].date()).days if p["date"] else 0
             if (today - checked).days < RETRY_DAYS or age > RETRY_MAX_AGE_DAYS:
                 continue
+        if busy or searches >= MAX_PAPERS_PER_RUN:
+            waiting += 1  # not remembered, so it is searched in a later run
+            continue
         searches += 1
         try:
             match = find_preprint(p)
+        except ArxivBusy as e:
+            print(f"  arXiv is refusing requests ({e}), the rest waits for the next run",
+                  file=sys.stderr)
+            busy, searches, waiting = True, searches - 1, waiting + 1
+            continue
         except Exception as e:  # noqa: BLE001
             print(f"  could not search arXiv for {p['link']}: {e}", file=sys.stderr)
             continue  # not remembered, so it is tried again next run
@@ -597,7 +637,8 @@ def preprint_items(source):
     if json.dumps(cache, sort_keys=True) != before:
         cache_path.write_text(json.dumps(cache, indent=1, sort_keys=True, ensure_ascii=False) + "\n",
                               encoding="utf-8")
-    return items, f" ({len(papers)} papers checked, {searches} searched on arXiv this run)"
+    return items, (f" ({len(papers)} papers in the source feed, {searches} searched on arXiv"
+                   f" this run, {waiting} waiting for the next runs)")
 
 
 def build_rss(source, items):
