@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Фабрика RSS-лент для сайтов без RSS.
+RSS feed factory for sites that don't publish RSS.
 
-Скрипт открывает страницу сайта, находит статьи (заголовок, дата, ссылка)
-и записывает RSS-ленту в папку docs/, откуда её отдаёт GitHub Pages.
+Fetches a listing page, extracts articles (title, date, link) and writes
+an RSS feed into docs/, which GitHub Pages serves.
 
-Чтобы добавить новый сайт, допишите его в список SOURCES внизу файла.
-Только стандартная библиотека Python, ничего устанавливать не нужно.
+To add a site, append it to SOURCES at the bottom of this file.
+Standard library only, nothing to install.
 """
 
 import re
@@ -33,12 +33,12 @@ DATE_RE = re.compile(r"\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[A-Z]*
 
 
 class LinkCollector(HTMLParser):
-    """Собирает все ссылки страницы вместе с кусочками текста внутри них."""
+    """Collects every link on the page together with the text chunks inside it."""
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.links = []      # [(href, [text chunks])]
-        self._stack = []     # открытые <a>
+        self._stack = []     # currently open <a> tags
 
     def handle_starttag(self, tag, attrs):
         if tag == "a":
@@ -50,7 +50,7 @@ class LinkCollector(HTMLParser):
             href, chunks = self._stack.pop()
             if href:
                 self.links.append((href, chunks))
-                # текст вложенной ссылки относится и к внешней
+                # text of a nested link also belongs to the outer one
                 if self._stack:
                     self._stack[-1][1].extend(chunks)
 
@@ -85,11 +85,11 @@ def title_from_slug(url):
 
 
 def pick_title(chunks, skip):
-    """Заголовок — самый частый (обычно повторяется дважды) и самый длинный кусок текста."""
+    """Title = the most repeated (usually shown twice), then longest, text chunk."""
     candidates = []
     for c in chunks:
         if DATE_RE.search(c) and len(DATE_RE.sub("", c).strip(" •|-")) < 25:
-            continue                      # кусок, где только категория и дата
+            continue                      # chunk holding only category and date
         if c.strip().lower() in skip:
             continue
         if len(c) < 4:
@@ -105,8 +105,8 @@ def extract_items(source):
     parser = LinkCollector()
     parser.feed(html)
 
-    # Одна статья может встречаться на странице несколько раз (баннер, карточка).
-    # Оставляем лучший вариант: с датой и с нормальным заголовком.
+    # The same article can appear several times (banner, card).
+    # Keep the best version: one with a date and a real title.
     best = {}
     for href, chunks in parser.links:
         url = urljoin(source["page"], href).split("#")[0]
@@ -149,16 +149,16 @@ def build_rss(source, items):
 
 
 # ---------------------------------------------------------------------------
-# Список источников. Чтобы добавить сайт — скопируйте блок и поменяйте поля.
-#   file          — имя файла ленты (адрес будет .../feeds/<file>)
-#   page          — страница, где перечислены статьи
-#   article_paths — кусочки адреса, по которым узнаются ссылки на статьи
+# Sources. To add a site, copy a block and change the fields.
+#   file          - feed file name (served at .../feeds/<file>)
+#   page          - page that lists the articles
+#   article_paths - URL fragments that identify article links
 # ---------------------------------------------------------------------------
 SOURCES = [
     {
         "file": "arenaphysica.xml",
-        "title": "Arena Physica — News",
-        "description": "Новости и публикации Arena Physica",
+        "title": "Arena Physica - News",
+        "description": "News and publications from Arena Physica",
         "page": "https://www.arenaphysica.com/news",
         "article_paths": ["arenaphysica.com/articles/", "arenaphysica.com/publications/"],
         "skip_text": {"arena physica", "media", "news", "research", "read the article"},
@@ -173,16 +173,16 @@ def main():
         try:
             items = extract_items(source)
         except Exception as e:  # noqa: BLE001
-            print(f"[{source['file']}] ошибка загрузки: {e}", file=sys.stderr)
+            print(f"[{source['file']}] fetch failed: {e}", file=sys.stderr)
             failed = True
             continue
         if not items:
-            # не перезаписываем старую ленту пустой — пусть Actions покажет красный крестик
-            print(f"[{source['file']}] статьи не найдены — возможно, сайт поменял вёрстку", file=sys.stderr)
+            # don't overwrite the old feed with an empty one; let Actions show a red X
+            print(f"[{source['file']}] no articles found, the site layout may have changed", file=sys.stderr)
             failed = True
             continue
         (OUT_DIR / source["file"]).write_text(build_rss(source, items), encoding="utf-8")
-        print(f"[{source['file']}] {len(items)} статей")
+        print(f"[{source['file']}] {len(items)} articles")
     sys.exit(1 if failed else 0)
 
 
