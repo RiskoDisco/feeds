@@ -1,5 +1,65 @@
 {
+ "https://doi.org/10.1080/14697688.2026.2705206": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "This is the second part of our work on Multivariate Quadratic Hawkes (MQHawkes) Processes, devoted to the calibration of the model defined and studied analytically in Aubrun, C., Benzaquen, M., & Bouchaud, J. P., Quantitative Finance, 23(5), 741-758 (2023). We propose a non-parametric calibration method based on the general method of moments applied to a coarse-grained version of the MQHawkes model. This allows us to bypass challenges inherent to tick by tick data. Our main methodological innovation is a multi-step calibration procedure, first focusing on ''self'' feedback kernels, and then progressively including cross-effects. Indeed, while cross-effects are significant and interpretable, they are usually one order of magnitude smaller than self-effects, and must therefore be disentangled from noise with care. For numerical stability, we also restrict to pair interactions and only calibrate bi-variate QHawkes, neglecting higher-order interactions. Our main findings are: (a) While cross-Hawkes feedback effects have been empirically studied previously, cross-Zumbach effects are clearly identified here for the first time. The effect of recent trends of the E-Mini futures contract onto the volatility of other futures contracts is especially strong; (b) We have identified a new type of feedback that couples past realized covariance between two assets and future volatility of these two assets, with the pair E-Mini vs TBOND as a case in point; (c) A cross-leverage effect, whereby the sign of the return of one asset impacts the volatility of another asset, is also clearly identified. The cross-leverage effect between the E-Mini and the residual volatility of single stocks is notable, and surprisingly universal across the universe of stocks that we considered.",
+   "authors": [
+    "Cecilia Aubrun",
+    "Michael Benzaquen",
+    "Jean-Philippe Bouchaud"
+   ],
+   "title": "Multivariate Quadratic Hawkes Processes -- Part II: Non-Parametric Empirical Calibration",
+   "url": "https://arxiv.org/abs/2509.21244"
+  },
+  "paper": {
+   "date": "2026-10-01T12:00:00+00:00",
+   "description": null,
+   "title": "Multivariate quadratic Hawkes processes—part II: non-parametric empirical calibration"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2708221": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2708228": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2716868": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Irena Vodenska",
+    "Wataru Souma",
+    "carolina magda roma"
+   ],
+   "title": "Complex Hilbert Principal Component Analysis Approach To Understand Economic Policy Uncertainty and Geopolitical Risk",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5371958"
+  },
+  "paper": {
+   "date": "2026-10-01T12:00:00+00:00",
+   "description": null,
+   "title": "Complex global interdependencies between economic policy uncertainty and geopolitical risk indices"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2720167": {
+  "checked": "2026-10-22",
+  "match": null
+ },
  "https://doi.org/10.1080/14697688.2026.2720658": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2721562": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2724005": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2725749": {
   "checked": "2026-10-22",
   "match": null
  },
@@ -37,6 +97,41 @@
    "date": "2026-10-20T12:00:00+00:00",
    "description": null,
    "title": "When does centrality matter in portfolio choice?"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2729193": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We introduce a new class of neural networks designed to be convex functions of their inputs, leveraging the principle that any convex function can be represented as the supremum of the affine functions it dominates. These neural networks, inherently convex with respect to their inputs, are particularly well-suited for approximating the prices of options with convex payoffs. We detail the architecture of this, and establish theoretical convergence bounds that validate its approximation capabilities. We also introduce a \\emph{scrambling} phase to improve the training of these networks. Finally, we demonstrate numerically the effectiveness of these networks in estimating prices for three types of options with convex payoffs: Basket, Bermudan, and Swing options.",
+   "authors": [
+    "Vincent Lemaire",
+    "Gilles Pagès",
+    "Christian Yeo"
+   ],
+   "title": "A new Input Convex Neural Network with application to options pricing",
+   "url": "https://arxiv.org/abs/2411.12854"
+  },
+  "paper": {
+   "date": "2026-10-01T12:00:00+00:00",
+   "description": null,
+   "title": "A new input convex neural network with application to options pricing"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2733398": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We study the difference between the level of systemic risk that is empirically measured on an interbank network and the risk that can be deduced from the balance sheets composition of the participating banks. Using generalised DebtRank dynamics, we measure observed systemic risk on e-MID network data (augmented by BankFocus information) and compare it with the expected systemic of a null model network -- obtained through an appropriate maximum-entropy approach constraining relevant balance sheet variables. We show that the aggregate levels of observed and expected systemic risks are usually compatible but differ significantly during turbulent times -- in our case, after the default of Lehman Brothers (2009) and the VLTRO implementation by the ECB (2012). At the individual level instead, banks are typically more or less risky than what their balance sheet prescribes due to their position in the network. Our results confirm on one hand that balance sheet information used within a proper maximum-entropy network model provides good systemic risk estimates, and on the other hand the importance of knowing the empirical details of the network for conducting precise stress tests of individual banks -- especially after systemic events.",
+   "authors": [
+    "Alessandro Ferracci",
+    "Giulio Cimini"
+   ],
+   "title": "Systemic Risk in Interbank Networks: Disentangling Balance Sheets and Network Effects",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3933626"
+  },
+  "paper": {
+   "date": "2026-10-08T12:00:00+00:00",
+   "description": null,
+   "title": "Systemic risk in empirical interbank networks: disentangling balance sheets and network effects"
   }
  },
  "https://doi.org/10.1080/14697688.2026.2744185": {
