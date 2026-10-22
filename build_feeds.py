@@ -2,8 +2,9 @@
 """
 RSS feed factory for sites that don't publish RSS.
 
-Fetches a listing page, extracts articles (title, date, link) and writes
-an RSS feed into docs/, which GitHub Pages serves.
+Fetches a listing page, extracts articles (title, date, link, summary),
+optionally fetches each article for its full text, and writes an RSS feed
+into docs/, which GitHub Pages serves.
 
 To add a site, append it to SOURCES at the bottom of this file.
 Standard library only, nothing to install.
@@ -11,6 +12,7 @@ Standard library only, nothing to install.
 
 import re
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
 from email.utils import format_datetime
@@ -156,10 +158,162 @@ def extract_items(source):
     return items
 
 
+# ---------------------------------------------------------------------------
+# Full-text extraction
+# ---------------------------------------------------------------------------
+
+class ContentExtractor(HTMLParser):
+    """Copies the inside of the first <root> element as clean, reader-friendly HTML.
+
+    Keeps text and basic formatting (paragraphs, headings, lists, links, images,
+    quotes, code, tables). Drops scripts, navigation, forms and other page chrome.
+    Unknown wrapper tags (div, span, section...) are removed but their text is kept.
+    """
+
+    VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
+            "meta", "source", "track", "wbr"}
+    DROP = {"script", "style", "noscript", "svg", "nav", "header", "footer", "aside",
+            "form", "button", "iframe", "template", "canvas", "video", "audio",
+            "select", "textarea", "dialog", "h1", "picture"}
+    KEEP = {"p", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li", "blockquote", "pre",
+            "code", "em", "strong", "b", "i", "figure", "figcaption", "table", "thead",
+            "tbody", "tr", "th", "td", "sup", "sub", "a"}
+
+    def __init__(self, base_url, root):
+        super().__init__(convert_charrefs=True)
+        self.base = base_url
+        self.root = root
+        self.out = []
+        self.text_len = 0
+        self._depth = 0       # >0 while inside the root element
+        self._done = False
+        self._drop = 0        # >0 while inside a dropped element
+        self._pre = 0
+
+    def _url(self, value):
+        return urljoin(self.base, value) if value else None
+
+    def handle_starttag(self, tag, attrs):
+        if self._done:
+            return
+        if self._depth == 0:
+            if tag == self.root:
+                self._depth = 1
+            return
+        if tag not in self.VOID:
+            self._depth += 1
+        if self._drop:
+            if tag not in self.VOID:
+                self._drop += 1
+            return
+        if tag in self.DROP:
+            if tag not in self.VOID:
+                self._drop = 1
+            return
+        a = dict(attrs)
+        if tag == "img":
+            src = self._url(a.get("src") or a.get("data-src"))
+            if src and not src.startswith("data:"):
+                alt = escape(a.get("alt") or "", {'"': "&quot;"})
+                self.out.append(f'<img src="{escape(src, {chr(34): "&quot;"})}" alt="{alt}">')
+        elif tag in ("br", "hr"):
+            self.out.append(f"<{tag}>")
+        elif tag == "a":
+            href = self._url(a.get("href"))
+            if href and not href.startswith("javascript:"):
+                self.out.append(f'<a href="{escape(href, {chr(34): "&quot;"})}">')
+            else:
+                self.out.append("<a>")
+        elif tag in self.KEEP:
+            if tag == "pre":
+                self._pre += 1
+            self.out.append(f"<{tag}>")
+        else:
+            self.out.append(" ")  # unwrapped tag: keep words from sticking together
+
+    def handle_endtag(self, tag):
+        if self._done or self._depth == 0 or tag in self.VOID:
+            return
+        self._depth -= 1
+        if self._depth == 0:
+            self._done = True
+            return
+        if self._drop:
+            self._drop -= 1
+            return
+        if tag in self.KEEP:
+            if tag == "pre" and self._pre:
+                self._pre -= 1
+            self.out.append(f"</{tag}>")
+        else:
+            self.out.append(" ")
+
+    def handle_data(self, data):
+        if self._done or self._depth == 0 or self._drop:
+            return
+        text = data if self._pre else re.sub(r"\s+", " ", data)
+        if text.strip():
+            self.text_len += len(text.strip())
+        self.out.append(escape(text))
+
+    def html(self):
+        out = "".join(self.out)
+        out = re.sub(r"<(p|li|h[2-6]|figcaption|blockquote)>\s*</\1>", "", out)  # empty tags
+        out = re.sub(r"<a>(.*?)</a>", r"\1", out, flags=re.S)                      # links without href
+        out = re.sub(r"[ \t]{2,}", " ", out).strip()
+        # drop loose text before the first block (usually the category and date line)
+        m = re.match(r"([^<]*)(<.*)", out, re.S)
+        if m and len(m.group(1)) < 120:
+            out = m.group(2)
+        return out
+
+
+def extract_full_text(html, url):
+    """Return the article body as HTML, or None if nothing substantial was found."""
+    for root in ("article", "main", "body"):
+        ex = ContentExtractor(url, root)
+        ex.feed(html)
+        if ex.text_len >= 300:
+            return ex.html()
+    return None
+
+
+ARXIV_ABSTRACT_RE = re.compile(r'<blockquote[^>]*class="[^"]*abstract[^"]*"[^>]*>(.*?)</blockquote>', re.S)
+
+
+def arxiv_content(url):
+    """Full abstract plus links to the PDF and the abstract page for an arXiv paper."""
+    html = fetch(url)
+    m = ARXIV_ABSTRACT_RE.search(html)
+    if not m:
+        return None
+    ex = ContentExtractor(url, "div")
+    ex.feed("<div>" + m.group(1) + "</div>")
+    abstract = re.sub(r"^\s*Abstract:\s*", "", ex.html())
+    pdf = url.replace("/abs/", "/pdf/")
+    return (f"<p>{abstract}</p>"
+            f'<p><a href="{escape(pdf)}">PDF</a> \u00b7 <a href="{escape(url)}">arXiv page</a></p>')
+
+
+def add_full_text(items, source):
+    """Fetch every article and attach its full text. Failures keep the summary."""
+    page_host = urlparse(source["page"]).netloc.removeprefix("www.")
+    for it in items:
+        host = urlparse(it["link"]).netloc.removeprefix("www.")
+        try:
+            if host == "arxiv.org":
+                it["content"] = arxiv_content(it["link"])
+            elif host == page_host:
+                it["content"] = extract_full_text(fetch(it["link"]), it["link"])
+        except Exception as e:  # noqa: BLE001
+            print(f"  could not fetch {it['link']}: {e}", file=sys.stderr)
+        time.sleep(1)  # be polite to the site
+
+
 def build_rss(source, items):
     out = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<rss version="2.0">',
+        '<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">',
         "<channel>",
         f"<title>{escape(source['title'])}</title>",
         f"<link>{escape(source['page'])}</link>",
@@ -172,6 +326,8 @@ def build_rss(source, items):
         out.append(f'<guid isPermaLink="true">{escape(it["link"])}</guid>')
         if it.get("summary"):
             out.append(f"<description>{escape(it['summary'])}</description>")
+        if it.get("content"):
+            out.append(f"<content:encoded>{escape(it['content'])}</content:encoded>")
         if it["date"]:
             out.append(f"<pubDate>{format_datetime(it['date'])}</pubDate>")
         out.append("</item>")
@@ -184,6 +340,7 @@ def build_rss(source, items):
 #   file          - feed file name (served at .../feeds/<file>)
 #   page          - page that lists the articles
 #   article_paths - URL fragments that identify article links
+#   full_text     - fetch each article and put its full text into the feed
 # ---------------------------------------------------------------------------
 SOURCES = [
     {
@@ -195,6 +352,7 @@ SOURCES = [
         "skip_text": {"arena physica", "publication", "publications", "paper", "papers",
                       "all", "read more"},
         "require_date": True,
+        "full_text": True,
     },
 ]
 
@@ -214,8 +372,11 @@ def main():
             print(f"[{source['file']}] no articles found, the site layout may have changed", file=sys.stderr)
             failed = True
             continue
+        if source.get("full_text"):
+            add_full_text(items, source)
         (OUT_DIR / source["file"]).write_text(build_rss(source, items), encoding="utf-8")
-        print(f"[{source['file']}] {len(items)} articles")
+        full = sum(1 for i in items if i.get("content"))
+        print(f"[{source['file']}] {len(items)} articles, {full} with full text")
     sys.exit(1 if failed else 0)
 
 
