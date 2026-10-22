@@ -33,17 +33,25 @@ DATE_RE = re.compile(r"\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[A-Z]*
 
 
 class LinkCollector(HTMLParser):
-    """Collects every link on the page together with the text chunks inside it."""
+    """Collects every link on the page with the text chunks inside it.
+
+    Each chunk is (text, in_heading): in_heading is True for text inside h1-h6,
+    which is usually the article title.
+    """
+
+    HEADINGS = {"h1", "h2", "h3", "h4", "h5", "h6"}
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.links = []      # [(href, [text chunks])]
+        self.links = []      # [(href, [(text, in_heading)])]
         self._stack = []     # currently open <a> tags
+        self._heading = 0    # depth of open heading tags
 
     def handle_starttag(self, tag, attrs):
         if tag == "a":
-            href = dict(attrs).get("href")
-            self._stack.append((href, []))
+            self._stack.append((dict(attrs).get("href"), []))
+        elif tag in self.HEADINGS:
+            self._heading += 1
 
     def handle_endtag(self, tag):
         if tag == "a" and self._stack:
@@ -53,11 +61,13 @@ class LinkCollector(HTMLParser):
                 # text of a nested link also belongs to the outer one
                 if self._stack:
                     self._stack[-1][1].extend(chunks)
+        elif tag in self.HEADINGS and self._heading:
+            self._heading -= 1
 
     def handle_data(self, data):
         text = " ".join(data.split())
         if text and self._stack:
-            self._stack[-1][1].append(text)
+            self._stack[-1][1].append((text, self._heading > 0))
 
 
 def fetch(url):
@@ -84,20 +94,38 @@ def title_from_slug(url):
     return slug.replace("-", " ").strip().capitalize() or url
 
 
-def pick_title(chunks, skip):
-    """Title = the most repeated (usually shown twice), then longest, text chunk."""
-    candidates = []
-    for c in chunks:
-        if DATE_RE.search(c) and len(DATE_RE.sub("", c).strip(" •|-")) < 25:
-            continue                      # chunk holding only category and date
-        if c.strip().lower() in skip:
-            continue
-        if len(c) < 4:
-            continue
-        candidates.append(c)
-    if not candidates:
-        return None
-    return max(candidates, key=lambda c: (candidates.count(c), len(c)))
+def is_meta(text):
+    """True for chunks holding only a category and/or a date."""
+    return bool(DATE_RE.search(text)) and len(DATE_RE.sub("", text).strip(" \u2022|-")) < 25
+
+
+def pick_title_and_summary(chunks, skip):
+    """Pick the title and a short summary from the text inside a link.
+
+    Title priority: text in a heading tag, then a chunk repeated on the card,
+    then the first chunk after the date, then the longest chunk.
+    """
+    cands = [(t, h) for t, h in chunks
+             if len(t) >= 4 and t.strip().lower() not in skip and not is_meta(t)]
+    if not cands:
+        return None, None
+    texts = [t for t, _ in cands]
+
+    title = next((t for t, h in cands if h), None)
+    if not title:
+        repeated = [t for t in texts if texts.count(t) > 1]
+        title = repeated[0] if repeated else None
+    if not title:
+        date_idx = next((i for i, (t, _) in enumerate(chunks) if DATE_RE.search(t)), None)
+        if date_idx is not None:
+            after = [t for t, _ in chunks[date_idx + 1:] if t in texts]
+            title = after[0] if after else None
+    if not title:
+        title = max(texts, key=len)
+
+    rest = [t for t in texts if t != title and len(t) > 40]
+    summary = max(rest, key=len) if rest else None
+    return title, summary
 
 
 def extract_items(source):
@@ -115,11 +143,12 @@ def extract_items(source):
         p = urlparse(url)
         key = p.netloc.removeprefix("www.") + p.path.rstrip("/")
         url = "https://" + p.netloc + p.path.rstrip("/")
-        date = parse_date(" ".join(chunks))
-        title = pick_title(chunks, source.get("skip_text", set()))
-        score = (date is not None, title is not None)
+        date = parse_date(" ".join(t for t, _ in chunks))
+        title, summary = pick_title_and_summary(chunks, source.get("skip_text", set()))
+        score = (date is not None, title is not None, summary is not None)
         if key not in best or score > best[key][0]:
-            best[key] = (score, {"title": title or title_from_slug(url), "link": url, "date": date})
+            best[key] = (score, {"title": title or title_from_slug(url), "link": url,
+                                 "date": date, "summary": summary})
 
     items = [v for _, v in best.values()
              if v["date"] or not source.get("require_date")]
@@ -141,6 +170,8 @@ def build_rss(source, items):
         out.append(f"<title>{escape(it['title'])}</title>")
         out.append(f"<link>{escape(it['link'])}</link>")
         out.append(f'<guid isPermaLink="true">{escape(it["link"])}</guid>')
+        if it.get("summary"):
+            out.append(f"<description>{escape(it['summary'])}</description>")
         if it["date"]:
             out.append(f"<pubDate>{format_datetime(it['date'])}</pubDate>")
         out.append("</item>")
@@ -157,11 +188,13 @@ def build_rss(source, items):
 SOURCES = [
     {
         "file": "arenaphysica.xml",
-        "title": "Arena Physica - News",
-        "description": "News and publications from Arena Physica",
-        "page": "https://www.arenaphysica.com/news",
-        "article_paths": ["arenaphysica.com/articles/", "arenaphysica.com/publications/"],
-        "skip_text": {"arena physica", "media", "news", "research", "read the article"},
+        "title": "Arena Physica - Publications",
+        "description": "Publications and papers from Arena Physica",
+        "page": "https://www.arenaphysica.com/publications",
+        "article_paths": ["arenaphysica.com/publications/", "arxiv.org/abs/"],
+        "skip_text": {"arena physica", "publication", "publications", "paper", "papers",
+                      "all", "read more"},
+        "require_date": True,
     },
 ]
 
