@@ -14,12 +14,14 @@ To add a site, append it to SOURCES at the bottom of this file.
 Standard library only, nothing to install.
 """
 
+import gzip
 import json
 import re
 import sys
 import time
 import unicodedata
 import urllib.request
+import zlib
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
@@ -80,12 +82,39 @@ class LinkCollector(HTMLParser):
             self._stack[-1][1].append((text, self._heading > 0))
 
 
+def decode_body(raw, content_encoding, charset):
+    """Unpack a compressed response (some servers send gzip even unasked) and decode it."""
+    encoding = (content_encoding or "").lower()
+    if "gzip" in encoding or raw[:2] == b"\x1f\x8b":
+        raw = gzip.decompress(raw)
+    elif "deflate" in encoding:
+        try:
+            raw = zlib.decompress(raw)
+        except zlib.error:
+            raw = zlib.decompress(raw, -zlib.MAX_WBITS)  # raw deflate without a header
+    return raw.decode(charset or "utf-8", errors="replace")
+
+
 def fetch(url):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT,
-                                               "Accept-Language": "en"})
+                                               "Accept-Language": "en",
+                                               "Accept-Encoding": "gzip"})
     with urllib.request.urlopen(req, timeout=30) as resp:
-        charset = resp.headers.get_content_charset() or "utf-8"
-        return resp.read().decode(charset, errors="replace")
+        return decode_body(resp.read(), resp.headers.get("Content-Encoding"),
+                           resp.headers.get_content_charset())
+
+
+def fetch_xml(url):
+    """Fetch and parse an XML document (RSS feed, arXiv API answer).
+
+    If the site sends something else, the error says what it sent, so the
+    Actions log shows the real cause.
+    """
+    text = fetch(url).lstrip("﻿ \t\r\n")
+    try:
+        return ET.fromstring(text)
+    except ET.ParseError as e:
+        raise RuntimeError(f"{url} did not return XML ({e}); it starts with {text[:80]!r}") from None
 
 
 def parse_date(text):
@@ -369,7 +398,7 @@ def surnames(names):
 
 def read_rss_items(url):
     """Items of an RSS 2.0 feed: title, link, date, description, authors."""
-    root = ET.fromstring(fetch(url))
+    root = fetch_xml(url)
     items = []
     for it in root.iter("item"):
         date = None
@@ -410,7 +439,7 @@ def arxiv_query(query, max_results, **extra):
         time.sleep(wait)
     try:
         params = {"search_query": query, "max_results": max_results, **extra}
-        root = ET.fromstring(fetch(ARXIV_API + "?" + urlencode(params)))
+        root = fetch_xml(ARXIV_API + "?" + urlencode(params))
     finally:
         _last_arxiv_request[0] = time.time()
     found = []
