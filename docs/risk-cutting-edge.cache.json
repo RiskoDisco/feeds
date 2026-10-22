@@ -1,5 +1,91 @@
 {
+ "https://www.risk.net/cutting-edge/7962175/skewing-the-correlation-in-local-and-stochastic-volatility-frameworks-via-copulas": {
+  "checked": "2026-10-22",
+  "match": null
+ },
  "https://www.risk.net/cutting-edge/7962392/ai-as-pricing-law": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://www.risk.net/cutting-edge/7962425/supervised-similarity-for-firm-linkages": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://www.risk.net/cutting-edge/7962614/the-importance-of-modelling-futures-dynamics-in-commodity-index-derivatives": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "In this article, we analyze two modeling approaches for the pricing of derivative contracts on a commodity index. The first one is a microscopic approach, where the components of the index are modeled individually, and the index price is derived from their combination. The second one is a macroscopic approach, where the index is modeled directly. While the microscopic approach offers greater flexibility, its calibration results to be more challenging, thus leading practitioners to favor the macroscopic approach. However, in the macroscopic model, the lack of explicit futures curve dynamics raises questions about its ability to accurately capture the behavior of the index and its sensitivities. In order to investigate this, we calibrate both models using derivatives of the S\\&P GSCI Crude Oil excess-return index and compare their pricing and sensitivities on path-dependent options, such as autocallable contracts. This research provides insights into the suitability of macroscopic models for pricing and hedging purposes in real scenarios.",
+   "authors": [
+    "Alberto Manzano",
+    "Emanuele Nastasi",
+    "Andrea Pallavicini",
+    "Carlos Vázquez"
+   ],
+   "title": "Evaluating Microscopic and Macroscopic Models for Derivative Contracts on Commodity Indices",
+   "url": "https://arxiv.org/abs/2408.00784"
+  },
+  "paper": {
+   "date": "2025-11-20T04:30:00+00:00",
+   "description": "Index-based and underlying-based pricing methods for commodity derivatives are presented",
+   "title": "The importance of modelling futures dynamics in commodity index derivatives"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7962821/the-relative-entropy-of-expectation-and-price": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "As operators acting on the undetermined final settlement of a derivative security, expectation is linear but price is non-linear. When the market of underlying securities is incomplete, non-linearity emerges from the bid-offer around the mid price that accounts for the residual risks of the optimal funding and hedging strategy. At the extremes, non-linearity also arises from the embedded options on capital that are exercised upon default. In this essay, these convexities are quantified in an entropic risk metric that evaluates the strategic risks, which is realised as a cost with the introduction of bilateral margin. Price is then adjusted for market incompleteness and the risk of default caused by the exhaustion of capital. In the complete market theory, price is derived from a martingale condition. In the incomplete market theory presented here, price is instead derived from a log-martingale condition: \\begin{equation} p=-\\frac{1}α\\log\\mathbb{E}\\exp[-αP] \\notag \\end{equation} for the price $p$ and payoff $P$ of a funded and hedged derivative security, where the price measure $\\mathbb{E}$ has minimum entropy relative to economic expectations, and the parameter $α$ matches the risk aversion of the investor. This price principle is easily applied to standard models for market evolution, with applications considered here in model risk analysis, deep hedging and quantum information.",
+   "authors": [
+    "Paul McCloud"
+   ],
+   "title": "The Relative Entropy of Expectation and Price",
+   "url": "https://arxiv.org/abs/2502.08613"
+  },
+  "paper": {
+   "date": "2025-12-11T04:30:00+00:00",
+   "description": "The replacement of risk-neutral pricing with entropic risk optimisation",
+   "title": "The relative entropy of expectation and price"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7962861/floating-exercise-boundaries-for-american-options-in-time-inhomogeneous-models": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "This paper examines a semi-analytical approach for pricing American options in time-inhomogeneous models characterized by negative interest rates (for equity/FX) or negative convenience yields (for commodities/cryptocurrencies). Under such conditions, exercise boundaries may exhibit a \"floating\" structure - dynamically appearing and disappearing. For example, a second exercise boundary could emerge within the computational domain and subsequently both could collapse, demanding specialized pricing methodologies.",
+   "authors": [
+    "Andrey Itkin",
+    "Yerkin Kitapbayev"
+   ],
+   "title": "Floating exercise boundaries for American options in time-inhomogeneous models",
+   "url": "https://arxiv.org/abs/2502.00740"
+  },
+  "paper": {
+   "date": "2025-12-17T09:56:41+00:00",
+   "description": "A pricing model is extended to account for negative interest rates or convenience yields",
+   "title": "Floating exercise boundaries for American options in time-inhomogeneous models"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7963011/bridging-credit-transitions-and-spread-dynamics": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://www.risk.net/cutting-edge/7963026/neural-networks-unleashed-joint-spxvix-calibration-has-never-been-faster": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Joint calibration to SPX and VIX market data is a delicate task that requires sophisticated modeling and incurs significant computational costs. The latter is especially true when pricing of volatility derivatives hinges on nested Monte Carlo simulation. One such example is the 4-factor Markov Path-Dependent Volatility (PDV) model of Guyon and Lekeufack (2023). Nonetheless, its realism has earned it considerable attention in recent years. Gazzani and Guyon (2025) marked a relevant contribution by learning the VIX as a random variable, i.e., a measurable function of the model parameters and the Markovian factors. A neural network replaces the inner simulation and makes the joint calibration problem accessible. However, the minimization loop remains slow due to expensive outer simulation. The present paper overcomes this limitation by learning SPX implied volatilities, VIX futures, and VIX call option prices. The pricing functions reduce to simple matrix-vector products that can be evaluated on the fly, shrinking calibration times to just a few seconds.",
+   "authors": [
+    "Fabio Baschetti",
+    "Giacomo Bormetti",
+    "Pietro Rossi"
+   ],
+   "title": "Joint deep calibration of the 4-factor PDV model",
+   "url": "https://arxiv.org/abs/2507.09412"
+  },
+  "paper": {
+   "date": "2026-02-04T04:30:00+00:00",
+   "description": "SPX and VIX options can be jointly calibrated in real time with deep neural networks",
+   "title": "Neural networks unleashed: joint SPX/VIX calibration has never been faster"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7963166/convex-volatility-interpolation": {
   "checked": "2026-10-22",
   "match": null
  },

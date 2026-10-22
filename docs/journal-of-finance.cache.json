@@ -1,0 +1,39 @@
+{
+ "https://doi.org/10.1111/jofi.70082": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We develop a model to study the efficiency of socially responsible investing (SRI) as a mechanism to control firms' externalities. When SRI is not too popular, responsible investors favor strategies that lead to a concentration of SRI in a subset of firms in the economy. This concentration can mitigate coordination issues in adopting green technologies, but it can also crowd out the green investments of excluded firms and increase the price of green products. In equilibrium, responsible investors continue to favor concentration even as SRI becomes more popular, and concentrate the most when concentration is least desirable.",
+   "authors": [
+    "Michele Bisceglia",
+    "Alessio Piccolo",
+    "Jan Schneemeier"
+   ],
+   "title": "Externalities of Responsible Investments",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4183855"
+  },
+  "paper": {
+   "date": "2026-10-14T12:00:00+00:00",
+   "description": "We develop a model to study the efficiency of socially responsible investing (SRI) as a mechanism to control firms' externalities. When SRI is not too popular, responsible investors favor strategies that lead to a concentration of SRI in a subset of firms in the economy. This concentration can…",
+   "title": "Externalities of Responsible Investments"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70095": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Prevailing theories of financial intermediation assume an integrated financial sector with frictionless risk sharing. However, we identify substantial risk-sharing frictions linked to intermediary specialization using currency derivatives markets as a laboratory. Using confidential supervisory data covering $25 trillion in daily bank exposures, we document imperfect hedging in banks’ FX-swap intermediation: banks rarely hedge their synthetic dollar lending with maturity-matched foreign safe assets. Intermediaries specialize in markets where they have expertise in managing the associated exposures, giving rise to cross-market variation in deviations from covered-interest parity. Our results highlight the importance of intermediary specialization and its impact on risk premia.",
+   "authors": [
+    "Tobias J. Moskowitz",
+    "Chase P. Ross",
+    "Sharon Y. Ross",
+    "Kaushik Vasudevan"
+   ],
+   "title": "Risk, Specialization, and Covered-Interest Parity",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4901040"
+  },
+  "paper": {
+   "date": "2026-10-13T12:00:00+00:00",
+   "description": "Prevailing theories of financial intermediation assume an integrated financial sector with frictionless risk‐sharing. However, we identify substantial risk‐sharing frictions linked to intermediary specialization using currency derivatives markets as a laboratory. Using confidential supervisory data…",
+   "title": "Risk, Specialization, and Covered‐Interest Parity"
+  }
+ }
+}
