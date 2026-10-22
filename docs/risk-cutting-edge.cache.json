@@ -3,6 +3,73 @@
   "checked": "2026-10-22",
   "match": null
  },
+ "https://www.risk.net/cutting-edge/7963329/valuing-private-equity-analytically": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://www.risk.net/cutting-edge/7963354/in-the-age-of-genai-why-do-we-still-need-good-models": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://www.risk.net/cutting-edge/7963389/fx-market-making-with-internal-liquidity": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "As the FX markets continue to evolve, many institutions have started offering passive access to their internal liquidity pools. Market makers act as principal and have the opportunity to fill those orders as part of their risk management, or they may choose to adjust pricing to their external OTC franchise to facilitate the matching flow. It is, a priori, unclear how the strategies managing internal liquidity should depend on market condions, the market maker's risk appetite, and the placement algorithms deployed by participating clients. The market maker's actions in the presence of passive orders are relevant not only for their own objectives, but also for those liquidity providers who have certain expectations of the execution speed. In this work, we investigate the optimal multi-objective strategy of a market maker with an option to take liquidity on an internal exchange, and draw important qualitative insights for real-world trading.",
+   "authors": [
+    "Alexander Barzykin",
+    "Robert Boyce",
+    "Eyal Neuman"
+   ],
+   "title": "FX Market Making with Internal Liquidity",
+   "url": "https://arxiv.org/abs/2512.04603"
+  },
+  "paper": {
+   "date": "2026-04-17T03:30:00+00:00",
+   "description": "A model to optimally manage clients’ orders to internal liquidity pools is presented",
+   "title": "FX market-making with internal liquidity"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7963458/capturing-smile-dynamics-with-the-quintic-volatility-model-spx-ssr-and-vix": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "We introduce the two-factor Quintic Ornstein-Uhlenbeck (OU) model, where volatility is modelled as a degree-five polynomial of the sum of two Ornstein-Uhlenbeck processes driven by the same Brownian motion, each mean-reverting at a different speed. We demonstrate that the model effectively captures the volatility surfaces of SPX and VIX while aligning with the skew-stickiness ratio (SSR) across maturities ranging from a few days to over two years. Furthermore, it is consistent with key empirical stylized facts, notably reproducing the Zumbach effect.",
+   "authors": [
+    "Eduardo Abi Jaber",
+    "Shaun",
+    "Li"
+   ],
+   "title": "Capturing Smile Dynamics with the Quintic Volatility Model: SPX, Skew-Stickiness Ratio and VIX",
+   "url": "https://arxiv.org/abs/2503.14158"
+  },
+  "paper": {
+   "date": "2026-05-06T03:30:00+00:00",
+   "description": "A new model captures the term structure of SPX &amp; VIX implied volatilities, ATM skew, and the skew-stickiness ratio",
+   "title": "Capturing smile dynamics with the quintic volatility model: SPX, SSR and VIX"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7963539/mi9-runtime-governance-for-agentic-ai-systems": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Agentic AI systems capable of reasoning, planning, and executing actions present fundamentally distinct governance challenges compared to traditional AI models. Unlike conventional AI, these systems exhibit emergent and unexpected behaviors during runtime, introducing novel agent-related risks that cannot be fully anticipated through pre-deployment governance alone. To address this critical gap, we introduce MI9, the first fully integrated runtime governance framework designed specifically for safety and alignment of agentic AI systems. MI9 introduces real-time controls through six integrated components: agency-risk index, agent-semantic telemetry capture, continuous authorization monitoring, Finite-State-Machine (FSM)-based conformance engines, goal-conditioned drift detection, and graduated containment strategies. Operating transparently across heterogeneous agent architectures, MI9 enables the systematic, safe, and responsible deployment of agentic systems in production environments where conventional governance approaches fall short, providing the foundational infrastructure for safe agentic AI deployment at scale. Detailed analysis through a diverse set of scenarios demonstrates MI9's systematic coverage of governance challenges that existing approaches fail to address, establishing the technical foundation for comprehensive agentic AI oversight.",
+   "authors": [
+    "Charles L. Wang",
+    "Trisha Singhal",
+    "Ameya Kelkar",
+    "Jason Tuo"
+   ],
+   "title": "MI9: An Integrated Runtime Governance Framework for Agentic AI",
+   "url": "https://arxiv.org/abs/2508.03858"
+  },
+  "paper": {
+   "date": "2026-05-20T03:30:00+00:00",
+   "description": "A real-time telemetry system for banks to control and authorise for agentic AI actions",
+   "title": "MI9: runtime governance for agentic AI systems"
+  }
+ },
+ "https://www.risk.net/cutting-edge/7963615/the-unreasonable-effectiveness-of-randomised-quasi-monte-carlo-in-finance": {
+  "checked": "2026-10-22",
+  "match": null
+ },
  "https://www.risk.net/cutting-edge/7963690/differential-machine-learning-with-a-difference": {
   "checked": "2026-10-22",
   "match": {
