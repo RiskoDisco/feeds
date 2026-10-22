@@ -4,5 +4,33 @@
 <title>Journal of Portfolio Management - Free Preprints</title>
 <link>https://www.pm-research.com/content/iijpormgmt</link>
 <description>Journal of Portfolio Management articles that have a free preprint on SSRN or arXiv</description>
+<item>
+<title>A Simple Responsive Covariance Matrix Forecaster for Multiple Horizons and Asset Classes</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4854248</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4854248</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Jorge Guijarro-Ordonez, Misha van Beek, Amandeep Dhaliwal&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4854248"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.3905/jpm.2026.072"&gt;Journal of Portfolio Management&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Tue, 29 Sep 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>The Deflated Sharpe Ratio: A Unified Framework for Search-Adjusted Performance Inference &lt;br&gt;</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7198158</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7198158</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Marcos López de Prado, Emilio Porcu&lt;/p&gt;&lt;p&gt;&amp;lt;span&amp;gt;The Deflated Sharpe Ratio (DSR) adjusts Sharpe ratio inference for the selection bias created when a reported strategy is chosen from multiple alternatives. This article presents the DSR as a unified family of search-adjusted inferential procedures rather than as a single formula. Within this framework, the 2014 implementation uses the expected maximum Sharpe ratio under the search-adjusted null as its benchmark, whereas the 2026 implementation retains both the location and dispersion of that distribution. The two implementations are mathematically consistent with the same underlying principle and serve different, equally legitimate inferential objectives. This unified perspective clarifies their relationship, distinguishes the definition of search-adjusted inference from its analytical implementation, and provides a foundation for future DSR formulations based on richer representations of the null distribution.&amp;lt;/span&amp;gt;&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7198158"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.3905/jpm.2026.070"&gt;Journal of Portfolio Management&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Sat, 26 Sep 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Transitioning from SAA to TPA Governance and Communication Requirements</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7228420</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7228420</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Stefano Cavaglia, Donald Raymond&lt;/p&gt;&lt;p&gt;The total portfolio approach (TPA) offers significant benefits over traditional strategic asset allocation (SAA), and its appeal has grown alongside institutional asset owners' increasing use of alternatives. Transitioning from SAA to TPA requires new thinking, new capabilities, and different delegation of authorities from board to management. This paper lays out a phased transition from SAA to TPA, letting an organization choose its pace and how far it wishes to go. It also addresses the communications a board needs, and questions it might ask, to oversee management across five areas: (i) people and culture, (ii) risk management, (iii) asset allocation, (iv) delegation of authorities, and (v) measures of success. Progress through these steps can be sequential, with an initial focus on foundational capabilities that also benefit an existing SAA approach, ahead of necessary changes to governance or incentives. TPA implementation can thus evolve at a pace suited to each fund's circumstances, letting the board build familiarity with the approach over time.&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7228420"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.3905/jpm.2026.071"&gt;Journal of Portfolio Management&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Extrapolation: Price vs. Value</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3678363</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3678363</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Dashan Huang, Huacheng Zhang, Guofu Zhou, Yingzi Zhu&lt;/p&gt;&lt;p&gt;&amp;lt;div&amp;gt; While price-based extrapolation, such as technical analysis and momentum, is well documented,&amp;amp;nbsp;&amp;lt;span&amp;gt;the extrapolation of fundamentals has received far less attention. In this paper,&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;we introduce a novel, data-driven approach that extrapolates multiple firm fundamentals&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;jointly rather than in isolation, and show that it delivers both economically and statistically&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;significant returns. Compared with analyst forecasts, our method is more broadly applicable&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;and exhibits substantially greater economic value. We further develop a theoretical framework&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;that decomposes the pricing impact of extrapolation into two opposing channels: a cash-flow&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;effect, which raises prices relative to fundamentals, and a discount-rate effect, which lowers&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;prices by increasing expected volatility. Empirically, we find that the discount-rate effect&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;dominates, shaping the overall pricing outcome. Overall, strategies based on fundamental&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;extrapolation significantly outperform traditional price-based extrapolation.&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt;&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3678363"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.3905/jpm.2026.067"&gt;Journal of Portfolio Management&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Fri, 18 Sep 2026 12:00:00 +0000</pubDate>
+</item>
 </channel>
 </rss>

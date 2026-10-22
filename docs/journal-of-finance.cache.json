@@ -18,10 +18,6 @@
    "title": "Discretionary Announcement Timing and Stock Returns"
   }
  },
- "https://doi.org/10.1111/jofi.70074": {
-  "checked": "2026-10-22",
-  "match": null
- },
  "https://doi.org/10.1111/jofi.70075": {
   "checked": "2026-10-22",
   "match": {
@@ -199,6 +195,23 @@
    "date": "2026-10-07T12:00:00+00:00",
    "description": "We document that the convenience yield of U.S. Treasuries exhibits properties consistent with a hedging perspective of safe assets, that is, Treasuries are valued highly if they appreciate with poor aggregate shocks. In particular, the convenience yield tends to be low when the covariance of…",
    "title": "When Do Treasuries Earn the Convenience Yield?—A Hedging Perspective"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70086": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Ned Augenblick",
+    "Eben Lazarus"
+   ],
+   "title": "Excess Movement in Option-Implied Beliefs",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5092905"
+  },
+  "paper": {
+   "date": "2026-10-22T12:00:00+00:00",
+   "description": "We derive bounds on the rational variation in option‐implied beliefs about market returns. While risk preferences distort option‐implied (or risk‐neutral ) beliefs away from subjective beliefs, one can nonetheless bound risk‐neutral belief movement under a general assumption on the stochastic…",
+   "title": "Excess Movement in Option‐Implied Beliefs"
   }
  },
  "https://doi.org/10.1111/jofi.70087": {

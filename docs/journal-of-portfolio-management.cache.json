@@ -1,4 +1,95 @@
 {
+ "https://doi.org/10.3905/jpm.2026.065": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.066": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.067": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "<div> While price-based extrapolation, such as technical analysis and momentum, is well documented,&nbsp;<span>the extrapolation of fundamentals has received far less attention. In this paper,&nbsp;</span><span>we introduce a novel, data-driven approach that extrapolates multiple firm fundamentals&nbsp;</span><span>jointly rather than in isolation, and show that it delivers both economically and statistically&nbsp;</span><span>significant returns. Compared with analyst forecasts, our method is more broadly applicable&nbsp;</span><span>and exhibits substantially greater economic value. We further develop a theoretical framework&nbsp;</span><span>that decomposes the pricing impact of extrapolation into two opposing channels: a cash-flow&nbsp;</span><span>effect, which raises prices relative to fundamentals, and a discount-rate effect, which lowers&nbsp;</span><span>prices by increasing expected volatility. Empirically, we find that the discount-rate effect&nbsp;</span><span>dominates, shaping the overall pricing outcome. Overall, strategies based on fundamental&nbsp;</span><span>extrapolation significantly outperform traditional price-based extrapolation.</span> </div>",
+   "authors": [
+    "Dashan Huang",
+    "Huacheng Zhang",
+    "Guofu Zhou",
+    "Yingzi Zhu"
+   ],
+   "title": "Extrapolation: Price vs. Value",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3678363"
+  },
+  "paper": {
+   "date": "2026-09-18T12:00:00+00:00",
+   "description": null,
+   "title": "Extrapolation: Price versus Value"
+  }
+ },
+ "https://doi.org/10.3905/jpm.2026.068": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.069": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.070": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "<span>The Deflated Sharpe Ratio (DSR) adjusts Sharpe ratio inference for the selection bias created when a reported strategy is chosen from multiple alternatives. This article presents the DSR as a unified family of search-adjusted inferential procedures rather than as a single formula. Within this framework, the 2014 implementation uses the expected maximum Sharpe ratio under the search-adjusted null as its benchmark, whereas the 2026 implementation retains both the location and dispersion of that distribution. The two implementations are mathematically consistent with the same underlying principle and serve different, equally legitimate inferential objectives. This unified perspective clarifies their relationship, distinguishes the definition of search-adjusted inference from its analytical implementation, and provides a foundation for future DSR formulations based on richer representations of the null distribution.</span>",
+   "authors": [
+    "Marcos López de Prado",
+    "Emilio Porcu"
+   ],
+   "title": "The Deflated Sharpe Ratio: A Unified Framework for Search-Adjusted Performance Inference <br>",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7198158"
+  },
+  "paper": {
+   "date": "2026-09-26T12:00:00+00:00",
+   "description": null,
+   "title": "The Deflated Sharpe Ratio: A Unified Framework for Search-Adjusted Performance Inference"
+  }
+ },
+ "https://doi.org/10.3905/jpm.2026.071": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "The total portfolio approach (TPA) offers significant benefits over traditional strategic asset allocation (SAA), and its appeal has grown alongside institutional asset owners' increasing use of alternatives. Transitioning from SAA to TPA requires new thinking, new capabilities, and different delegation of authorities from board to management. This paper lays out a phased transition from SAA to TPA, letting an organization choose its pace and how far it wishes to go. It also addresses the communications a board needs, and questions it might ask, to oversee management across five areas: (i) people and culture, (ii) risk management, (iii) asset allocation, (iv) delegation of authorities, and (v) measures of success. Progress through these steps can be sequential, with an initial focus on foundational capabilities that also benefit an existing SAA approach, ahead of necessary changes to governance or incentives. TPA implementation can thus evolve at a pace suited to each fund's circumstances, letting the board build familiarity with the approach over time.",
+   "authors": [
+    "Stefano Cavaglia",
+    "Donald Raymond"
+   ],
+   "title": "Transitioning from SAA to TPA Governance and Communication Requirements",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7228420"
+  },
+  "paper": {
+   "date": "2026-09-25T12:00:00+00:00",
+   "description": null,
+   "title": "Transitioning from SAA to TPA: Governance and Communication Requirements"
+  }
+ },
+ "https://doi.org/10.3905/jpm.2026.072": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Jorge Guijarro-Ordonez",
+    "Misha van Beek",
+    "Amandeep Dhaliwal"
+   ],
+   "title": "A Simple Responsive Covariance Matrix Forecaster for Multiple Horizons and Asset Classes",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4854248"
+  },
+  "paper": {
+   "date": "2026-09-29T12:00:00+00:00",
+   "description": null,
+   "title": "A Responsive Variance and Covariance Matrix Forecaster for Multiple Horizons and Asset Classes"
+  }
+ },
+ "https://doi.org/10.3905/jpm.2026.073": {
+  "checked": "2026-10-22",
+  "match": null
+ },
  "https://doi.org/10.3905/jpm.2026.074": {
   "checked": "2026-10-22",
   "match": null
