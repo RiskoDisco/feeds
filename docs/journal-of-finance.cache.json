@@ -1,4 +1,114 @@
 {
+ "https://doi.org/10.1111/jofi.70073": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Kerry Back",
+    "Bruce Carlin",
+    "Seyed Mohammad Kazempour",
+    "Chloe Xie"
+   ],
+   "title": "Discretionary Announcement Timing and Stock Returns&nbsp;",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4933885"
+  },
+  "paper": {
+   "date": "2026-09-03T12:00:00+00:00",
+   "description": "Discretionary announcement timing generates high conditional risk premia of stock returns and a pattern of negative drifts followed by positive jumps. Average announcement returns are much larger than unconditional risk premia. Capital Asset Pricing Model alphas turn negative when conditioning on…",
+   "title": "Discretionary Announcement Timing and Stock Returns"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70074": {
+  "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.1111/jofi.70075": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Marina Gertsberg"
+   ],
+   "title": "The Unintended Consequences of #MeToo - Evidence from Research Collaborations",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105976"
+  },
+  "paper": {
+   "date": "2026-08-21T12:00:00+00:00",
+   "description": "How did #MeToo alter collaboration between women and men? I show junior female researchers start fewer projects after #MeToo. A decrease in collaborations with male coauthors—especially new senior male coauthors at the same institution—largely explains the decline. The decrease is larger at…",
+   "title": "The Unintended Consequences of #MeToo: Evidence from Research Collaborations in Economics and Finance"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70076": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "<p><a rel=\"nofollow\"><span>A majority of small U.S. businesses attempting to reorganize in bankruptcy fail to successfully do so. Subchapter V of Chapter 11 was introduced in 2020 for firms with less than $7.5 million in liabilities to streamline the process by reducing bankruptcy costs and negotiation frictions, and enabling entrepreneurs to retain their ownership. Employing regression-discontinuity and difference-in-differences designs, we show that many small businesses reorganize under the new procedures that otherwise would have been liquidated. Further,&nbsp;expected creditor recoveries and post-bankruptcy survival rates are at least as high in Subchapter V as in similar traditional small business reorganizations. Our results show that the increased ability to preserve small businesses is not associated with a bias toward continuing unviable firms, and that creditors are not harmed by a&nbsp;shift&nbsp;in bargaining power toward small business owners.&nbsp;</span></a></p>",
+   "authors": [
+    "Edith S. Hotchkiss",
+    "Benjamin Charles Iverson",
+    "Xiang Zheng"
+   ],
+   "title": "Can Small Businesses Survive Chapter 11?&nbsp;",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4726391"
+  },
+  "paper": {
+   "date": "2026-08-19T12:00:00+00:00",
+   "description": "A majority of small U.S. businesses attempting to reorganize in bankruptcy fail to do so. Subchapter V of Chapter 11 (SubV) streamlines bankruptcy for small firms by reducing bankruptcy costs and negotiation frictions, and enables entrepreneurs to retain ownership. We show that many businesses…",
+   "title": "Can Small Businesses Survive Chapter 11?"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70077": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "<div> Annuities, long-term care insurance and reverse mortgages remain&nbsp;<span>puzzlingly unpopular to manage post-retirement longevity, health and&nbsp;</span><span>housing price risks. We use a flexible life-cycle model structurally estimated&nbsp;</span><span>with a unique stated-preference survey experiment of Canadian&nbsp;</span><span>households to understand why. Key factors include high risk aversion,&nbsp;</span><span>concern over long-run risks, strong discounting of valuation in disability&nbsp;</span><span>states, imperfect housing substitutability and bequest motives.</span> </div>",
+   "authors": [
+    "Pierre-Carl Michaud",
+    "Pascal St-Amour"
+   ],
+   "title": "Longevity, Health and Housing Risks Management in Retirement",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4388459"
+  },
+  "paper": {
+   "date": "2026-08-25T12:00:00+00:00",
+   "description": "Annuities, long‐term care insurance, and reverse mortgages remain puzzlingly unpopular to manage post‐retirement longevity, health, and housing price risks. We use a flexible life‐cycle model structurally estimated with a unique stated‐preference survey experiment of Canadian households to…",
+   "title": "Longevity, Health, and Housing Risk Management in Retirement"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70078": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Ehsan Azarmsa",
+    "Joel D. Shapiro"
+   ],
+   "title": "The Market for ESG Ratings",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4236912"
+  },
+  "paper": {
+   "date": "2026-08-25T12:00:00+00:00",
+   "description": "We present a model of competition between environmental, social, and governance (ESG) raters who acquire information about multiple unrelated categories and sell ratings. Raters specializing in different categories maximize the amount of information transmitted and surplus, and can be an…",
+   "title": "The Market for ESG Ratings"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70079": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Jess Benhabib",
+    "Zhaorui Li",
+    "Xuewen Liu",
+    "Pengfei Wang"
+   ],
+   "title": "Reference-dependent Preferences and Sentiment-driven Asset Prices",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5269148"
+  },
+  "paper": {
+   "date": "2026-08-22T12:00:00+00:00",
+   "description": "This paper studies asset pricing under expectations‐based reference‐dependent preferences in a general equilibrium framework. We show that reference‐dependent preferences can generate self‐fulfilling risk panics, producing sentiment‐driven asset price fluctuations through a feedback loop between…",
+   "title": "Reference‐Dependent Preferences and Sentiment‐Driven Asset Prices"
+  }
+ },
  "https://doi.org/10.1111/jofi.70080": {
   "checked": "2026-10-22",
   "match": {
@@ -17,6 +127,10 @@
    "description": "Firms tend to compete more aggressively when facing financial distress. This intensified competition reduces profit margins, pushing them further into distress and adversely affecting their industry peers. To study such feedback and contagion effects, we incorporate strategic competition in a…",
    "title": "Feedback and Contagion through Distressed Competition"
   }
+ },
+ "https://doi.org/10.1111/jofi.70081": {
+  "checked": "2026-10-22",
+  "match": null
  },
  "https://doi.org/10.1111/jofi.70082": {
   "checked": "2026-10-22",
@@ -104,6 +218,22 @@
    "title": "Mind the App: Mobile Access to Financial Information and Consumer Behavior"
   }
  },
+ "https://doi.org/10.1111/jofi.70088": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "This paper develops a control-function methodology accounting for endogenous or mismeasured regressors in hazard models. I provide sufficient identifying assumptions and regularity conditions for the estimator to be consistent and asymptotically normal. Applying the estimator to the subprime mortgage crisis, I quantify what caused the foreclosure rate to triple across the 2003-2007 subprime cohorts. To identify the elasticity of default with respect to housing prices, I use various home-price instruments including historical variation in home-price cyclicality. Loose credit played a significant role in the crisis, but much of the increase in defaults across cohorts was caused by home-price declines unrelated to lending standards, with a 10% decline in home prices increasing subprime mortgage default rates by 50%.",
+   "authors": [
+    "Christopher Palmer"
+   ],
+   "title": "An IV Hazard Model of Loan Default with an Application to Subprime Mortgage Cohorts",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4680735"
+  },
+  "paper": {
+   "date": "2026-09-28T12:00:00+00:00",
+   "description": "I develop a control function methodology robust to endogenous or mismeasured regressors in hazard models. Applying the estimator to the subprime mortgage crisis, I quantify what caused the foreclosure rate to triple across the 2003 to 2007 subprime cohorts. To identify the elasticity of default to…",
+   "title": "An IV Hazard Model of Loan Default with an Application to Subprime Mortgage Cohorts"
+  }
+ },
  "https://doi.org/10.1111/jofi.70089": {
   "checked": "2026-10-22",
   "match": {
@@ -165,6 +295,24 @@
    "date": "2026-09-30T12:00:00+00:00",
    "description": "Institutional investors are less likely to support shareholder proposals on environmental and social issues for firms headquartered in Republican‐led states. The decline in support has become more pronounced in recent years, aligning with politicians emphasizing companies’ social responsibility…",
    "title": "The Politicization of Social Responsibility"
+  }
+ },
+ "https://doi.org/10.1111/jofi.70094": {
+  "checked": "2026-10-22",
+  "match": {
+   "abstract": "Person-to-person crowdfunding is an increasingly important form of disas<span>ter relief, yet its distribution is poorly understood. Linking GoFundMe cam</span><span>paigns from a major wildfire to property and household credit records, we find&nbsp;</span><span>that—holding property losses constant—higher-income households are 12 p.p.&nbsp;</span><span>more likely to have campaigns and raise over 25% more. These disparities re</span><span>flect unequal access to social capital: broader donor bases, more non-local ties,&nbsp;</span><span>greater advocacy by friends, and more generous donors. Donors appear influ</span><span>enced by social pressure in online crowdfunding. These mechanisms mirror&nbsp;</span><span>national patterns and underscore crowdfunding’s limitations as a tool for eq</span><span>uitable disaster relief.</span>",
+   "authors": [
+    "J. Anthony Cookson",
+    "Emily Gallagher",
+    "Philip Mulder"
+   ],
+   "title": "Money to Burn: Crowdfunding Wildfire Recovery",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4535190"
+  },
+  "paper": {
+   "date": "2026-09-29T12:00:00+00:00",
+   "description": "Person‐to‐person crowdfunding is an increasingly important form of disaster relief, yet its distribution is poorly understood. Linking GoFundMe campaigns from a major wildfire to property and household credit records, we find that higher‐income households are 12 pp more likely to have campaigns and…",
+   "title": "Money to Burn: Crowdfunding Wildfire Recovery"
   }
  },
  "https://doi.org/10.1111/jofi.70095": {
