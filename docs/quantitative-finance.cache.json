@@ -265,6 +265,22 @@
    "title": "Systemic risk in empirical interbank networks: disentangling balance sheets and network effects"
   }
  },
+ "https://doi.org/10.1080/14697688.2026.2738610": {
+  "checked": "2026-10-23",
+  "match": {
+   "abstract": "This paper studies dynamic asset allocation with interest rate risk and several sources of ambiguity. The market consists of a risk-free asset, a zero-coupon bond (both determined by a Vasicek model), and a stock. There is ambiguity about the risk premia, the volatilities, and the correlation. The investor's preferences display both risk aversion and ambiguity aversion. The optimal investment problem admits a closed-form solution. The solution shows that the ambiguity only affects the speculative motives of the investor, representing a hedge against the ambiguity, but not the hedging of interest rate risk. An implementation of the optimal investment strategy shows that ambiguity aversion helps to tame the highly leveraged portfolios neglecting ambiguity and leads to strategies that are more in line with popular investment advice.",
+   "authors": [
+    "Julian Hölzermann"
+   ],
+   "title": "Optimal Investment with Stochastic Interest Rates and Ambiguity",
+   "url": "https://arxiv.org/abs/2306.13343"
+  },
+  "paper": {
+   "date": "2026-10-23T12:00:00+00:00",
+   "description": null,
+   "title": "Optimal investment with stochastic interest rates and ambiguity"
+  }
+ },
  "https://doi.org/10.1080/14697688.2026.2744185": {
   "checked": "2026-10-22",
   "match": {

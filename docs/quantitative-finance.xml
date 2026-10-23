@@ -5,6 +5,13 @@
 <link>https://www.tandfonline.com/journals/rquf20</link>
 <description>Quantitative Finance (journal) articles that have a free preprint on arXiv or SSRN</description>
 <item>
+<title>Optimal Investment with Stochastic Interest Rates and Ambiguity</title>
+<link>https://arxiv.org/abs/2306.13343</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2306.13343</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Julian Hölzermann&lt;/p&gt;&lt;p&gt;This paper studies dynamic asset allocation with interest rate risk and several sources of ambiguity. The market consists of a risk-free asset, a zero-coupon bond (both determined by a Vasicek model), and a stock. There is ambiguity about the risk premia, the volatilities, and the correlation. The investor's preferences display both risk aversion and ambiguity aversion. The optimal investment problem admits a closed-form solution. The solution shows that the ambiguity only affects the speculative motives of the investor, representing a hedge against the ambiguity, but not the hedging of interest rate risk. An implementation of the optimal investment strategy shows that ambiguity aversion helps to tame the highly leveraged portfolios neglecting ambiguity and leads to strategies that are more in line with popular investment advice.&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2306.13343"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2306.13343"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2738610"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Fri, 23 Oct 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
 <title>The Dollar's Double Life for Cross-Currency Basis Swaps: A Closer Look at G10 Panels</title>
 <link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7536759</link>
 <guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7536759</guid>
