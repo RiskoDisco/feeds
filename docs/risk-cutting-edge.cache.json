@@ -230,5 +230,25 @@
    "description": "Mechanistic interpretability identifies and locates modifications in computational mechanisms",
    "title": "Beyond the black box: interpretability of LLMs in finance"
   }
+ },
+ "https://www.risk.net/cutting-edge/7964329/the-quadratic-rough-heston-model-for-short-dated-options": {
+  "checked": "2026-10-26",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Florian Bourgey",
+    "Patrick Noble",
+    "Ingi Petursson",
+    "Mathieu Rosenbaum",
+    "Grégoire Szymanski"
+   ],
+   "title": "The Quadratic Rough Heston+ Model for Short-Dated Options",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6072928"
+  },
+  "paper": {
+   "date": "2026-10-26T04:30:00+00:00",
+   "description": "Skew and curvature of 0DTE are captured with an extended Heston model",
+   "title": "The quadratic rough Heston+ model for short-dated options"
+  }
  }
 }

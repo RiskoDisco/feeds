@@ -5,6 +5,14 @@
 <link>https://www.risk.net/cutting-edge</link>
 <description>Risk.net Cutting Edge papers that have a free preprint on arXiv or SSRN</description>
 <item>
+<title>The Quadratic Rough Heston+ Model for Short-Dated Options</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6072928</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6072928</guid>
+<description>Skew and curvature of 0DTE are captured with an extended Heston model</description>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Florian Bourgey, Patrick Noble, Ingi Petursson, Mathieu Rosenbaum, Grégoire Szymanski&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6072928"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://www.risk.net/cutting-edge/7964329/the-quadratic-rough-heston-model-for-short-dated-options"&gt;Risk.net Cutting Edge&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Mon, 26 Oct 2026 04:30:00 +0000</pubDate>
+</item>
+<item>
 <title>Beyond the Black Box: Interpretability of LLMs in Finance</title>
 <link>https://arxiv.org/abs/2505.24650</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2505.24650</guid>
