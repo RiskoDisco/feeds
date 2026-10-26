@@ -23,10 +23,6 @@
   "checked": "2026-10-22",
   "match": null
  },
- "https://doi.org/10.1080/14697688.2026.2696403": {
-  "checked": "2026-10-22",
-  "match": null
- },
  "https://doi.org/10.1080/14697688.2026.2705206": {
   "checked": "2026-10-22",
   "match": {
@@ -44,10 +40,6 @@
    "description": null,
    "title": "Multivariate quadratic Hawkes processes—part II: non-parametric empirical calibration"
   }
- },
- "https://doi.org/10.1080/14697688.2026.2707212": {
-  "checked": "2026-10-22",
-  "match": null
  },
  "https://doi.org/10.1080/14697688.2026.2707213": {
   "checked": "2026-10-22",
@@ -133,10 +125,6 @@
    "description": null,
    "title": "Refined expansions of the skew-stickiness ratio in stochastic volatility models"
   }
- },
- "https://doi.org/10.1080/14697688.2026.2715708": {
-  "checked": "2026-10-22",
-  "match": null
  },
  "https://doi.org/10.1080/14697688.2026.2716868": {
   "checked": "2026-10-22",
@@ -265,6 +253,10 @@
    "title": "Systemic risk in empirical interbank networks: disentangling balance sheets and network effects"
   }
  },
+ "https://doi.org/10.1080/14697688.2026.2738607": {
+  "checked": "2026-10-26",
+  "match": null
+ },
  "https://doi.org/10.1080/14697688.2026.2738610": {
   "checked": "2026-10-23",
   "match": {
@@ -299,5 +291,17 @@
    "description": null,
    "title": "The dollar's double life for cross-currency basis swaps: a closer look at G10 panels"
   }
+ },
+ "https://doi.org/10.1080/14697688.2026.2744186": {
+  "checked": "2026-10-26",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2745595": {
+  "checked": "2026-10-26",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2745602": {
+  "checked": "2026-10-26",
+  "match": null
  }
 }
