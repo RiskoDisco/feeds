@@ -1,13 +1,5 @@
 {
- "https://doi.org/10.3905/jpm.2026.059": {
-  "checked": "2026-10-22",
-  "match": null
- },
  "https://doi.org/10.3905/jpm.2026.060": {
-  "checked": "2026-10-22",
-  "match": null
- },
- "https://doi.org/10.3905/jpm.2026.061": {
   "checked": "2026-10-22",
   "match": null
  },
@@ -163,6 +155,14 @@
  },
  "https://doi.org/10.3905/jpm.2026.082": {
   "checked": "2026-10-22",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.083": {
+  "checked": "2026-10-28",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.085": {
+  "checked": "2026-10-28",
   "match": null
  },
  "https://doi.org/10.3905/jpm.2026.52.11.005": {

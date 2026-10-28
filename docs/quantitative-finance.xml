@@ -5,6 +5,13 @@
 <link>https://www.tandfonline.com/journals/rquf20</link>
 <description>Quantitative Finance (journal) articles that have a free preprint on arXiv or SSRN</description>
 <item>
+<title>Local risk-minimization for exponential additive processes</title>
+<link>https://arxiv.org/abs/2602.17090</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2602.17090</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Takuji Arai&lt;/p&gt;&lt;p&gt;We explore local risk-minimization, a quadratic hedging method for incomplete markets, in exponential additive models. The objectives are to derive explicit mathematical expressions and to conduct numerical experiments. While local risk-minimization is well studied for Lévy processes, little is known for the additive process case because, unlike Lévy processes, the Lévy measure for an additive process depends on time, which significantly complicates the mathematical framework. This paper shall provide a set of necessary conditions for deriving expressions for LRM strategies in exponential additive models, as integrability conditions on the Lévy measure, which allow us to confirm whether these conditions are satisfied for given concrete models. In the final section, we introduce the variance-gamma scaled self-decomposable process, a Sato process that generalizes the variance-gamma process, as a primary example, and perform numerical experiments.&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2602.17090"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2602.17090"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2745593"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Wed, 28 Oct 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
 <title>Optimal Investment with Stochastic Interest Rates and Ambiguity</title>
 <link>https://arxiv.org/abs/2306.13343</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2306.13343</guid>

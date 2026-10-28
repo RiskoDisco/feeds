@@ -296,6 +296,22 @@
   "checked": "2026-10-26",
   "match": null
  },
+ "https://doi.org/10.1080/14697688.2026.2745593": {
+  "checked": "2026-10-28",
+  "match": {
+   "abstract": "We explore local risk-minimization, a quadratic hedging method for incomplete markets, in exponential additive models. The objectives are to derive explicit mathematical expressions and to conduct numerical experiments. While local risk-minimization is well studied for Lévy processes, little is known for the additive process case because, unlike Lévy processes, the Lévy measure for an additive process depends on time, which significantly complicates the mathematical framework. This paper shall provide a set of necessary conditions for deriving expressions for LRM strategies in exponential additive models, as integrability conditions on the Lévy measure, which allow us to confirm whether these conditions are satisfied for given concrete models. In the final section, we introduce the variance-gamma scaled self-decomposable process, a Sato process that generalizes the variance-gamma process, as a primary example, and perform numerical experiments.",
+   "authors": [
+    "Takuji Arai"
+   ],
+   "title": "Local risk-minimization for exponential additive processes",
+   "url": "https://arxiv.org/abs/2602.17090"
+  },
+  "paper": {
+   "date": "2026-10-28T12:00:00+00:00",
+   "description": null,
+   "title": "Local risk-minimization for exponential additive processes"
+  }
+ },
  "https://doi.org/10.1080/14697688.2026.2745595": {
   "checked": "2026-10-26",
   "match": null
