@@ -19,10 +19,6 @@
    "title": "Empirical analysis of the model-free valuation approach: hedging gaps, conservatism, and trading opportunities"
   }
  },
- "https://doi.org/10.1080/14697688.2026.2695392": {
-  "checked": "2026-10-29",
-  "match": null
- },
  "https://doi.org/10.1080/14697688.2026.2705206": {
   "checked": "2026-10-22",
   "match": {
@@ -235,6 +231,10 @@
    "description": null,
    "title": "A new input convex neural network with application to options pricing"
   }
+ },
+ "https://doi.org/10.1080/14697688.2026.2733386": {
+  "checked": "2026-10-29",
+  "match": null
  },
  "https://doi.org/10.1080/14697688.2026.2733398": {
   "checked": "2026-10-22",
