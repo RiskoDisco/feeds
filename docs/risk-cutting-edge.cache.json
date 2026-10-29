@@ -145,7 +145,7 @@
   }
  },
  "https://www.risk.net/cutting-edge/7963615/the-unreasonable-effectiveness-of-randomised-quasi-monte-carlo-in-finance": {
-  "checked": "2026-10-22",
+  "checked": "2026-10-29",
   "match": null
  },
  "https://www.risk.net/cutting-edge/7963690/differential-machine-learning-with-a-difference": {
@@ -166,8 +166,20 @@
   }
  },
  "https://www.risk.net/cutting-edge/7963816/tailoring-tails-within-the-mixture-model-framework": {
-  "checked": "2026-10-22",
-  "match": null
+  "checked": "2026-10-29",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Joerg Kienitz"
+   ],
+   "title": "Tailoring Tails within the mixture model framework",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5840502"
+  },
+  "paper": {
+   "date": "2026-07-09T03:30:00+00:00",
+   "description": "Introducing a data generator mixing Gaussian and Student-t distributions to capture fat tails",
+   "title": "Tailoring tails within the mixture model framework"
+  }
  },
  "https://www.risk.net/cutting-edge/7963878/the-fundamental-representation-of-pricing-adjustments": {
   "checked": "2026-10-22",
@@ -207,7 +219,7 @@
   }
  },
  "https://www.risk.net/cutting-edge/7964125/reconciling-p-and-q-calibration-with-path-dependent-volatility": {
-  "checked": "2026-10-22",
+  "checked": "2026-10-29",
   "match": null
  },
  "https://www.risk.net/cutting-edge/7964165/beyond-the-black-box-interpretability-of-llms-in-finance": {
