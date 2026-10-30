@@ -347,6 +347,24 @@
    "title": "Risk, Specialization, and Covered‐Interest Parity"
   }
  },
+ "https://doi.org/10.1111/jofi.70099": {
+  "checked": "2026-10-30",
+  "match": {
+   "abstract": "We consider an informed large shareholder who can choose between making a takeover bid herself and initiating a sale to another acquirer. Such takeover activism complements direct takeovers because the very choice mitigates the asymmetric information problem, thereby improving efficiency. As more investors enter the market for corporate control, takeover activism increasingly replaces direct takeovers as the prevailing mode of disciplinary control change---matching the evolution in practice. Our model shows how such an evolution, characterized by a symbiotic relationship between investor activism and private equity, arises to overcome asymmetric information and collective action problems through intermediated transactions.",
+   "authors": [
+    "Mike C. Burkart",
+    "Samuel Lee",
+    "Paul Voss"
+   ],
+   "title": "The Evolution of the Market for Corporate Control",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4709037"
+  },
+  "paper": {
+   "date": "2026-10-30T12:00:00+00:00",
+   "description": "We consider an informed large shareholder who can choose between making a takeover bid herself and initiating a sale to another acquirer. Such takeover activism complements direct takeovers because the very choice mitigates the asymmetric information problem, thereby improving efficiency. As more…",
+   "title": "The Evolution of the Market for Corporate Control"
+  }
+ },
  "https://doi.org/10.1111/jofi.70100": {
   "checked": "2026-10-29",
   "match": {
