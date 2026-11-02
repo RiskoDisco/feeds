@@ -347,6 +347,25 @@
    "title": "Risk, Specialization, and Covered‐Interest Parity"
   }
  },
+ "https://doi.org/10.1111/jofi.70097": {
+  "checked": "2026-11-02",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Robert Czech",
+    "Shiyang Huang",
+    "Dong Lou",
+    "Tianyu Wang"
+   ],
+   "title": "An Unintended Consequence of Holding Dollar Assets",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4012879"
+  },
+  "paper": {
+   "date": "2026-11-02T12:00:00+00:00",
+   "description": "We propose and examine a novel mechanism whereby holdings of dollar assets by foreign institutions can have a large, unexpected impact on foreign Treasury yields in crisis periods. Non‐U.S. institutions hold substantial dollar assets and hedge dollar exposures by selling dollars forward. In crisis…",
+   "title": "Unintended Consequences of Holding Dollar Assets"
+  }
+ },
  "https://doi.org/10.1111/jofi.70099": {
   "checked": "2026-10-30",
   "match": {
