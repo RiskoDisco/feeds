@@ -316,8 +316,60 @@
   "checked": "2026-11-02",
   "match": null
  },
+ "https://doi.org/10.1080/14697688.2026.2747751": {
+  "checked": "2026-11-04",
+  "match": {
+   "abstract": "We analyze the qualitative differences between prices of double barrier no-touch options in the Heston model and pure jump KoBoL model calibrated to the same set of the empirical data, and discuss the potential for arbitrage opportunities if the correct model is a pure jump model. We explain and demonstrate with numerical examples that accurate and fast calculations of prices of double barrier options in jump models are extremely difficult using the numerical methods available in the literature. We develop a new efficient method (GWR-SINH method) based of the Gaver-Wynn-Rho acceleration applied to the Bromwich integral; the SINH-acceleration and simplified trapezoid rule are used to evaluate perpetual double barrier options for each value of the spectral parameter in GWR-algorithm. The program in Matlab running on a Mac with moderate characteristics achieves the precision of the order of E-5 and better in several several dozen of milliseconds; the precision E-07 is achievable in about 0.1 sec. We outline the extension of GWR-SINH method to regime-switching models and models with stochastic parameters and stochastic interest rates.",
+   "authors": [
+    "Svetlana Boyarchenko",
+    "Sergei Levendorskii"
+   ],
+   "title": "Alternative models for FX, arbitrage opportunities and efficient pricing of double barrier options in Lévy models",
+   "url": "https://arxiv.org/abs/2312.03915"
+  },
+  "paper": {
+   "date": "2026-11-04T12:00:00+00:00",
+   "description": null,
+   "title": "Alternative models for FX, arbitrage opportunities and efficient pricing of double barrier options in regime-switching Lévy models"
+  }
+ },
+ "https://doi.org/10.1080/14697688.2026.2748469": {
+  "checked": "2026-11-04",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Eduardo Abi Jaber",
+    "Donatien Hainaut",
+    "Edouard Motte"
+   ],
+   "title": "The Volterra Stein-Stein model with stochastic interest rates",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5164431"
+  },
+  "paper": {
+   "date": "2026-11-04T12:00:00+00:00",
+   "description": null,
+   "title": "The Volterra Stein–Stein model with stochastic interest rates"
+  }
+ },
  "https://doi.org/10.1080/14697688.2026.2749693": {
   "checked": "2026-11-04",
   "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2749700": {
+  "checked": "2026-11-04",
+  "match": {
+   "abstract": "This paper investigates the deep hedging framework, based on reinforcement learning (RL), for the dynamic hedging of swaptions, contrasting its performance with traditional sensitivity-based rho-hedging. We design agents under three distinct objective functions (mean squared error, downside risk, and Conditional Value-at-Risk) to capture alternative risk preferences and evaluate how these objectives shape hedging styles. Relying on a three-factor arbitrage-free dynamic Nelson-Siegel model for our simulation experiments, our findings show that near-optimal hedging effectiveness is achieved when using two swaps as hedging instruments. Deep hedging strategies dynamically adapt the hedging portfolio's exposure to risk factors across states of the market. In our experiments, their out-performance over rho-hedging strategies persists even in the presence some of model misspecification. These results highlight RL's potential to deliver more efficient and resilient swaption hedging strategies.",
+   "authors": [
+    "Zaniar Ahmadi",
+    "Frédéric Godin"
+   ],
+   "title": "Learning to Hedge Swaptions",
+   "url": "https://arxiv.org/abs/2512.06639"
+  },
+  "paper": {
+   "date": "2026-11-04T12:00:00+00:00",
+   "description": null,
+   "title": "Learning to hedge swaptions"
+  }
  }
 }

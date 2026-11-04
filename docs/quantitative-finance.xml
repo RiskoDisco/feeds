@@ -5,6 +5,27 @@
 <link>https://www.tandfonline.com/journals/rquf20</link>
 <description>Quantitative Finance (journal) articles that have a free preprint on arXiv or SSRN</description>
 <item>
+<title>Alternative models for FX, arbitrage opportunities and efficient pricing of double barrier options in Lévy models</title>
+<link>https://arxiv.org/abs/2312.03915</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2312.03915</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Svetlana Boyarchenko, Sergei Levendorskii&lt;/p&gt;&lt;p&gt;We analyze the qualitative differences between prices of double barrier no-touch options in the Heston model and pure jump KoBoL model calibrated to the same set of the empirical data, and discuss the potential for arbitrage opportunities if the correct model is a pure jump model. We explain and demonstrate with numerical examples that accurate and fast calculations of prices of double barrier options in jump models are extremely difficult using the numerical methods available in the literature. We develop a new efficient method (GWR-SINH method) based of the Gaver-Wynn-Rho acceleration applied to the Bromwich integral; the SINH-acceleration and simplified trapezoid rule are used to evaluate perpetual double barrier options for each value of the spectral parameter in GWR-algorithm. The program in Matlab running on a Mac with moderate characteristics achieves the precision of the order of E-5 and better in several several dozen of milliseconds; the precision E-07 is achievable in about 0.1 sec. We outline the extension of GWR-SINH method to regime-switching models and models with stochastic parameters and stochastic interest rates.&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2312.03915"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2312.03915"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2747751"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Wed, 04 Nov 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Learning to Hedge Swaptions</title>
+<link>https://arxiv.org/abs/2512.06639</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2512.06639</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Zaniar Ahmadi, Frédéric Godin&lt;/p&gt;&lt;p&gt;This paper investigates the deep hedging framework, based on reinforcement learning (RL), for the dynamic hedging of swaptions, contrasting its performance with traditional sensitivity-based rho-hedging. We design agents under three distinct objective functions (mean squared error, downside risk, and Conditional Value-at-Risk) to capture alternative risk preferences and evaluate how these objectives shape hedging styles. Relying on a three-factor arbitrage-free dynamic Nelson-Siegel model for our simulation experiments, our findings show that near-optimal hedging effectiveness is achieved when using two swaps as hedging instruments. Deep hedging strategies dynamically adapt the hedging portfolio's exposure to risk factors across states of the market. In our experiments, their out-performance over rho-hedging strategies persists even in the presence some of model misspecification. These results highlight RL's potential to deliver more efficient and resilient swaption hedging strategies.&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2512.06639"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2512.06639"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2749700"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Wed, 04 Nov 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>The Volterra Stein-Stein model with stochastic interest rates</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5164431</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5164431</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Eduardo Abi Jaber, Donatien Hainaut, Edouard Motte&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5164431"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2748469"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Wed, 04 Nov 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
 <title>Local risk-minimization for exponential additive processes</title>
 <link>https://arxiv.org/abs/2602.17090</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2602.17090</guid>
