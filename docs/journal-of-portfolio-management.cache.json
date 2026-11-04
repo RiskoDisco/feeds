@@ -1,8 +1,4 @@
 {
- "https://doi.org/10.3905/jpm.2026.062": {
-  "checked": "2026-10-29",
-  "match": null
- },
  "https://doi.org/10.3905/jpm.2026.063": {
   "checked": "2026-10-22",
   "match": {
@@ -180,6 +176,22 @@
  "https://doi.org/10.3905/jpm.2026.087": {
   "checked": "2026-11-04",
   "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.089": {
+  "checked": "2026-11-04",
+  "match": {
+   "abstract": "Holdings-based factor attribution routinely applies a multi-factor risk model to a problem it was not designed to solve. We show that this produces a decomposition that is doubly unidentified: the named factor return vector is not uniquely determined by the covariance structure the model estimates, and the reference portfolios that define factor returns are unconstrained replicators that real investment mandates cannot hold. Both failures are structural, not statistical. Observable attribution pathologies (e.g., highly correlated factor and specific contributions) are their predictable consequences.",
+   "authors": [
+    "Vishv Jeet"
+   ],
+   "title": "Factor-Based Performance Attribution: Structural Limits and Double Unidentifiability",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6300338"
+  },
+  "paper": {
+   "date": "2026-11-04T12:00:00+00:00",
+   "description": null,
+   "title": "Factor-Based Performance Attribution: Structural Limits and Double Unidentifiability"
+  }
  },
  "https://doi.org/10.3905/jpm.2026.52.11.005": {
   "checked": "2026-10-29",

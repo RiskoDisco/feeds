@@ -5,6 +5,13 @@
 <link>https://www.pm-research.com/content/iijpormgmt</link>
 <description>Journal of Portfolio Management articles that have a free preprint on SSRN or arXiv</description>
 <item>
+<title>Factor-Based Performance Attribution: Structural Limits and Double Unidentifiability</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6300338</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6300338</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Vishv Jeet&lt;/p&gt;&lt;p&gt;Holdings-based factor attribution routinely applies a multi-factor risk model to a problem it was not designed to solve. We show that this produces a decomposition that is doubly unidentified: the named factor return vector is not uniquely determined by the covariance structure the model estimates, and the reference portfolios that define factor returns are unconstrained replicators that real investment mandates cannot hold. Both failures are structural, not statistical. Observable attribution pathologies (e.g., highly correlated factor and specific contributions) are their predictable consequences.&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6300338"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.3905/jpm.2026.089"&gt;Journal of Portfolio Management&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Wed, 04 Nov 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
 <title>Fama-French Factors, Macro variables and Global Risks: Evidence from US Industry Portfolios</title>
 <link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4851853</link>
 <guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4851853</guid>
