@@ -366,6 +366,24 @@
    "title": "Unintended Consequences of Holding Dollar Assets"
   }
  },
+ "https://doi.org/10.1111/jofi.70098": {
+  "checked": "2026-11-04",
+  "match": {
+   "abstract": "We reinvestigate Anderson, Reeb, and Zhao's (2012) findings that informed short selling is unique to family firms and driven by information leakage from internal disputes. Using the same firm sample and more comprehensive short-selling data, we find that short selling predicts future returns in both family and nonfamily firms. We also find no significant difference in abnormal short selling before negative earnings announcements. In extended sample periods, short selling continues to predict returns for nonfamily firms under both ownership-based and familial-link definitions. Overall, our evidence suggests that short sellers are broadly informed and that family firms are not uniquely vulnerable.",
+   "authors": [
+    "Ferhat Akbas",
+    "Minjie Huang",
+    "Felix Meschke"
+   ],
+   "title": "Is Informed Short Selling Concentrated in Family Firms? Evidence from a Reinvestigation",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6711538"
+  },
+  "paper": {
+   "date": "2026-11-04T12:00:00+00:00",
+   "description": "We reinvestigate Anderson, Reeb, and Zhao's findings that informed short selling is unique to family firms and driven by information leakage from internal disputes. Using the same firm sample and more comprehensive short‐selling data, we find that short selling predicts future returns in both…",
+   "title": "Is Informed Short Selling Concentrated in Family Firms? Evidence from a Reinvestigation"
+  }
+ },
  "https://doi.org/10.1111/jofi.70099": {
   "checked": "2026-10-30",
   "match": {
