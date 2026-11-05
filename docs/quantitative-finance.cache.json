@@ -57,10 +57,6 @@
   "checked": "2026-11-05",
   "match": null
  },
- "https://doi.org/10.1080/14697688.2026.2708228": {
-  "checked": "2026-11-05",
-  "match": null
- },
  "https://doi.org/10.1080/14697688.2026.2709673": {
   "checked": "2026-10-22",
   "match": {
@@ -135,10 +131,6 @@
    "description": null,
    "title": "Complex global interdependencies between economic policy uncertainty and geopolitical risk indices"
   }
- },
- "https://doi.org/10.1080/14697688.2026.2720167": {
-  "checked": "2026-11-05",
-  "match": null
  },
  "https://doi.org/10.1080/14697688.2026.2720623": {
   "checked": "2026-10-22",
@@ -269,6 +261,10 @@
    "title": "Optimal investment with stochastic interest rates and ambiguity"
   }
  },
+ "https://doi.org/10.1080/14697688.2026.2740081": {
+  "checked": "2026-11-05",
+  "match": null
+ },
  "https://doi.org/10.1080/14697688.2026.2744185": {
   "checked": "2026-10-22",
   "match": {
@@ -315,6 +311,24 @@
  "https://doi.org/10.1080/14697688.2026.2745602": {
   "checked": "2026-11-02",
   "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2746476": {
+  "checked": "2026-11-05",
+  "match": {
+   "abstract": "This paper examines a continuous-time execution problem for a risk-averse large trader in the presence of temporary, permanent, and transient market impacts as well as an exogenous, stochastic factor that affects the financial asset price. The stochastic factor, which we refer to as the <i>Markovian environment</i>, is described by a generalized Ornstein-Uhlenbeck (OU) process. The problem is formulated as a continuous-time stochastic control problem over a finite horizon. By analyzing the associated Hamilton-Jacobi-Bellman (HJB) equation, we derive an optimal execution strategy characterized by an <i>affine function</i> of the state variables with time-dependent coefficients. The time-dependent coefficients are determined by a solution to a system of numerically tractable ordinary differential equations (ODEs) with terminal conditions, consisting of (i) a matrix Riccati differential equation (MRDE), (ii) a vector-valued linear ODE, and (iii) a one-dimensional ODE. Under mild conditions, we show that the MRDE admits a unique solution and establish a verification theorem. Simulation-based numerical experiments illustrate that the Markovian environment significantly influences the optimal execution strategy. Specifically, we numerically observe the possibility of a utility-based statistical arbitrage via a round-trip trading.",
+   "authors": [
+    "Masaaki Fukasawa",
+    "Masamitsu Ohnishi",
+    "Makoto Shimoshimizu"
+   ],
+   "title": "Continuous-Time Optimal Execution and Utility-Based Statistical Arbitrage in a Markovian Environment",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371598"
+  },
+  "paper": {
+   "date": "2026-11-05T12:00:00+00:00",
+   "description": null,
+   "title": "Continuous-time optimal execution and utility-based statistical arbitrage in a Markovian environment"
+  }
  },
  "https://doi.org/10.1080/14697688.2026.2747751": {
   "checked": "2026-11-04",

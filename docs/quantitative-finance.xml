@@ -5,6 +5,13 @@
 <link>https://www.tandfonline.com/journals/rquf20</link>
 <description>Quantitative Finance (journal) articles that have a free preprint on arXiv or SSRN</description>
 <item>
+<title>Continuous-Time Optimal Execution and Utility-Based Statistical Arbitrage in a Markovian Environment</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371598</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371598</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Masaaki Fukasawa, Masamitsu Ohnishi, Makoto Shimoshimizu&lt;/p&gt;&lt;p&gt;This paper examines a continuous-time execution problem for a risk-averse large trader in the presence of temporary, permanent, and transient market impacts as well as an exogenous, stochastic factor that affects the financial asset price. The stochastic factor, which we refer to as the &amp;lt;i&amp;gt;Markovian environment&amp;lt;/i&amp;gt;, is described by a generalized Ornstein-Uhlenbeck (OU) process. The problem is formulated as a continuous-time stochastic control problem over a finite horizon. By analyzing the associated Hamilton-Jacobi-Bellman (HJB) equation, we derive an optimal execution strategy characterized by an &amp;lt;i&amp;gt;affine function&amp;lt;/i&amp;gt; of the state variables with time-dependent coefficients. The time-dependent coefficients are determined by a solution to a system of numerically tractable ordinary differential equations (ODEs) with terminal conditions, consisting of (i) a matrix Riccati differential equation (MRDE), (ii) a vector-valued linear ODE, and (iii) a one-dimensional ODE. Under mild conditions, we show that the MRDE admits a unique solution and establish a verification theorem. Simulation-based numerical experiments illustrate that the Markovian environment significantly influences the optimal execution strategy. Specifically, we numerically observe the possibility of a utility-based statistical arbitrage via a round-trip trading.&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371598"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2746476"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Thu, 05 Nov 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
 <title>Alternative models for FX, arbitrage opportunities and efficient pricing of double barrier options in Lévy models</title>
 <link>https://arxiv.org/abs/2312.03915</link>
 <guid isPermaLink="true">https://arxiv.org/abs/2312.03915</guid>
