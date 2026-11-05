@@ -254,5 +254,23 @@
    "description": "Skew and curvature of 0DTE are captured with an extended Heston model",
    "title": "The quadratic rough Heston+ model for short-dated options"
   }
+ },
+ "https://www.risk.net/cutting-edge/7964385/smile-dynamics-and-rough-volatility": {
+  "checked": "2026-11-05",
+  "match": {
+   "abstract": "<div> We analyze joint spot-smile dynamics, focusing on the Skew Stickiness Ratio in rough volatility models, and compare the results with SPX data. After calibration to the SPX implied volatility term structure, rough models yield SSRs similar to those of classical forward variance curve models, suggesting that rough volatility alone does not materially alter joint spot-implied volatility dynamics. </div>",
+   "authors": [
+    "Florian Bourgey",
+    "Stefano De Marco",
+    "Jules Delemotte"
+   ],
+   "title": "Smile Dynamics and Rough Volatility",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4911186"
+  },
+  "paper": {
+   "date": "2026-11-05T04:30:00+00:00",
+   "description": "The joint spot-smile dynamics is analysed through the skew stickiness ratio lens",
+   "title": "Smile dynamics and rough volatility"
+  }
  }
 }

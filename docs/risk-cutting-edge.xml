@@ -5,6 +5,14 @@
 <link>https://www.risk.net/cutting-edge</link>
 <description>Risk.net Cutting Edge papers that have a free preprint on arXiv or SSRN</description>
 <item>
+<title>Smile Dynamics and Rough Volatility</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4911186</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4911186</guid>
+<description>The joint spot-smile dynamics is analysed through the skew stickiness ratio lens</description>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Florian Bourgey, Stefano De Marco, Jules Delemotte&lt;/p&gt;&lt;p&gt;&amp;lt;div&amp;gt; We analyze joint spot-smile dynamics, focusing on the Skew Stickiness Ratio in rough volatility models, and compare the results with SPX data. After calibration to the SPX implied volatility term structure, rough models yield SSRs similar to those of classical forward variance curve models, suggesting that rough volatility alone does not materially alter joint spot-implied volatility dynamics. &amp;lt;/div&amp;gt;&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4911186"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://www.risk.net/cutting-edge/7964385/smile-dynamics-and-rough-volatility"&gt;Risk.net Cutting Edge&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Thu, 05 Nov 2026 04:30:00 +0000</pubDate>
+</item>
+<item>
 <title>The Quadratic Rough Heston+ Model for Short-Dated Options</title>
 <link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6072928</link>
 <guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6072928</guid>
