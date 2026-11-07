@@ -41,10 +41,6 @@
    "title": "Extrapolation: Price versus Value"
   }
  },
- "https://doi.org/10.3905/jpm.2026.068": {
-  "checked": "2026-11-05",
-  "match": null
- },
  "https://doi.org/10.3905/jpm.2026.069": {
   "checked": "2026-11-05",
   "match": null
@@ -195,6 +191,10 @@
  },
  "https://doi.org/10.3905/jpm.2026.090": {
   "checked": "2026-11-05",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.091": {
+  "checked": "2026-11-07",
   "match": null
  },
  "https://doi.org/10.3905/jpm.2026.52.11.005": {
