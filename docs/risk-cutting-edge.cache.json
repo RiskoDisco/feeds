@@ -272,5 +272,9 @@
    "description": "The joint spot-smile dynamics is analysed through the skew stickiness ratio lens",
    "title": "Smile dynamics and rough volatility"
   }
+ },
+ "https://www.risk.net/cutting-edge/7964406/refined-slippage-variance-reduction-using-counterfactual-returns": {
+  "checked": "2026-11-11",
+  "match": null
  }
 }
