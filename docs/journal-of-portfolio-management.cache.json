@@ -18,10 +18,6 @@
    "title": "Bootstrapping and Bias: The Economic Costs of Misjudging Downside Risk"
   }
  },
- "https://doi.org/10.3905/jpm.2026.066": {
-  "checked": "2026-11-12",
-  "match": null
- },
  "https://doi.org/10.3905/jpm.2026.067": {
   "checked": "2026-10-22",
   "match": {
@@ -40,10 +36,6 @@
    "description": null,
    "title": "Extrapolation: Price versus Value"
   }
- },
- "https://doi.org/10.3905/jpm.2026.069": {
-  "checked": "2026-11-12",
-  "match": null
  },
  "https://doi.org/10.3905/jpm.2026.070": {
   "checked": "2026-10-22",
@@ -196,6 +188,29 @@
  "https://doi.org/10.3905/jpm.2026.091": {
   "checked": "2026-11-07",
   "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.092": {
+  "checked": "2026-11-12",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.093": {
+  "checked": "2026-11-12",
+  "match": {
+   "abstract": "Financial institutions represent a substantial share of global equity markets yet have traditionally been excluded from empirical factor investing studies. We ask whether financial institutions should remain excluded from systematic factor strategies or whether factor definitions should instead be adapted to their distinctive economics. Using U.S. and developed-market data, we find that established factor premiums remain economically meaningful within financial institutions and provide additive return information beyond conventional ex-financial factor portfolios. Including financials in systematic portfolios meaningfully improves risk-adjusted performance, while adapting generic factor definitions to bankspecific measures provides further gains. Overall, we conclude that financial institutions should be brought into systematic strategies, with factor definitions adapted to the economics of the sector.",
+   "authors": [
+    "Guido Baltussen",
+    "Ali Moin",
+    "Bart van Vliet",
+    "Milan Vidojevic"
+   ],
+   "title": "The Omitted Sector: Factor Investing in Financials",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7682039"
+  },
+  "paper": {
+   "date": "2026-11-11T12:00:00+00:00",
+   "description": null,
+   "title": "The Omitted Sector: Factor Investing in Financials"
+  }
  },
  "https://doi.org/10.3905/jpm.2026.52.11.005": {
   "checked": "2026-11-12",
