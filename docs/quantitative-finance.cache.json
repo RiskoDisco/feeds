@@ -53,10 +53,6 @@
    "title": "Explicit methods for portfolio optimization with realistic costs and constraints"
   }
  },
- "https://doi.org/10.1080/14697688.2026.2708221": {
-  "checked": "2026-11-12",
-  "match": null
- },
  "https://doi.org/10.1080/14697688.2026.2709673": {
   "checked": "2026-10-22",
   "match": {
@@ -155,10 +151,6 @@
   "match": null
  },
  "https://doi.org/10.1080/14697688.2026.2721562": {
-  "checked": "2026-11-12",
-  "match": null
- },
- "https://doi.org/10.1080/14697688.2026.2724005": {
   "checked": "2026-11-12",
   "match": null
  },
@@ -385,5 +377,13 @@
    "description": null,
    "title": "Learning to hedge swaptions"
   }
+ },
+ "https://doi.org/10.1080/14697688.2026.2754255": {
+  "checked": "2026-11-13",
+  "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2757147": {
+  "checked": "2026-11-13",
+  "match": null
  }
 }
