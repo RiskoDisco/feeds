@@ -5,6 +5,20 @@
 <link>https://www.tandfonline.com/journals/rquf20</link>
 <description>Quantitative Finance (journal) articles that have a free preprint on arXiv or SSRN</description>
 <item>
+<title>Riding a Bubble: A Study of Market-Timing Trading Strategies</title>
+<link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5337989</link>
+<guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5337989</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Robert A. Jarrow, Simon Kwok&lt;/p&gt;&lt;p&gt;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5337989"&gt;SSRN page (free PDF download)&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2757149"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Tue, 17 Nov 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Diffusive in plain sight: An inconspicuous law of market impact</title>
+<link>https://arxiv.org/abs/2606.07059</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2606.07059</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Julius F. Bonart&lt;/p&gt;&lt;p&gt;Decomposing market impact as the difference between realized and counterfactual returns, and requiring both to be diffusive, yields a structural identity that restricts admissible impact dynamics at the level of individual participants. This constraint implies the square-root law in the information-neutral regime and a crossover toward linear impact under strong informational coupling, consistent with empirical observations. It further implies that impact must adapt to each participant's order-flow statistics, with consequences for theories of optimal execution and no-arbitrage. In the information-neutral regime, cumulative impact is itself diffusive, providing a diagnostic that many propagator and latent-liquidity models fail to satisfy. Under this regime, market impact retains an undetermined all-pass degree of freedom that prevents its reduction to a pure surprise model. This residual freedom accommodates transient impact dynamics and can generate strictly positive impact costs. Keywords: Market impact, Price impact, Square-root law, Optimal execution, Arbitrage, Latent liquidity, Metaorder&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2606.07059"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2606.07059"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2756370"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Tue, 17 Nov 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
 <title>Continuous-Time Optimal Execution and Utility-Based Statistical Arbitrage in a Markovian Environment</title>
 <link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371598</link>
 <guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371598</guid>

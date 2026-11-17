@@ -154,10 +154,6 @@
   "checked": "2026-11-12",
   "match": null
  },
- "https://doi.org/10.1080/14697688.2026.2725749": {
-  "checked": "2026-11-12",
-  "match": null
- },
  "https://doi.org/10.1080/14697688.2026.2729190": {
   "checked": "2026-10-22",
   "match": {
@@ -382,8 +378,41 @@
   "checked": "2026-11-13",
   "match": null
  },
+ "https://doi.org/10.1080/14697688.2026.2756370": {
+  "checked": "2026-11-17",
+  "match": {
+   "abstract": "Decomposing market impact as the difference between realized and counterfactual returns, and requiring both to be diffusive, yields a structural identity that restricts admissible impact dynamics at the level of individual participants. This constraint implies the square-root law in the information-neutral regime and a crossover toward linear impact under strong informational coupling, consistent with empirical observations. It further implies that impact must adapt to each participant's order-flow statistics, with consequences for theories of optimal execution and no-arbitrage. In the information-neutral regime, cumulative impact is itself diffusive, providing a diagnostic that many propagator and latent-liquidity models fail to satisfy. Under this regime, market impact retains an undetermined all-pass degree of freedom that prevents its reduction to a pure surprise model. This residual freedom accommodates transient impact dynamics and can generate strictly positive impact costs. Keywords: Market impact, Price impact, Square-root law, Optimal execution, Arbitrage, Latent liquidity, Metaorder",
+   "authors": [
+    "Julius F. Bonart"
+   ],
+   "title": "Diffusive in plain sight: An inconspicuous law of market impact",
+   "url": "https://arxiv.org/abs/2606.07059"
+  },
+  "paper": {
+   "date": "2026-11-17T12:00:00+00:00",
+   "description": null,
+   "title": "Diffusive in plain sight: an inconspicuous law of market impact"
+  }
+ },
  "https://doi.org/10.1080/14697688.2026.2757147": {
   "checked": "2026-11-13",
   "match": null
+ },
+ "https://doi.org/10.1080/14697688.2026.2757149": {
+  "checked": "2026-11-17",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Robert A. Jarrow",
+    "Simon Kwok"
+   ],
+   "title": "Riding a Bubble: A Study of Market-Timing Trading Strategies",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5337989"
+  },
+  "paper": {
+   "date": "2026-11-17T12:00:00+00:00",
+   "description": null,
+   "title": "Riding a bubble: a study of market-timing trading strategies"
+  }
  }
 }
