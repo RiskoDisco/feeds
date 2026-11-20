@@ -375,8 +375,32 @@
   }
  },
  "https://doi.org/10.1080/14697688.2026.2754255": {
-  "checked": "2026-11-13",
-  "match": null
+  "checked": "2026-11-20",
+  "match": {
+   "abstract": "Real-time whole-body imitation from monocular video requires both a robust universal tracker and high-quality real-time reconstruction. We present MoViC, a framework that uses live RGB video as a control signal for humanoid robots without wearable tracking devices. The framework combines monocular human motion reconstruction, robot retargeting, and a transformer-based behavior foundation model. The policy receives proprioceptive history, a single explicit next-step reference, and a compact frequency-domain motion representation that supplies temporal context without explicitly stacking future reference frames, which reduces the input dimension and network size. During deployment, our extrapolation method bridges the 10-Hz visual estimation with 50-Hz controller, enabling asynchronous visual processing and policy execution. Hardware experiments further demonstrate highly dynamic motion tracking and device-free teleoperation of bimanual and single-arm manipulation tasks from live monocular RGB input. Project page: https://movicproject.github.io/ .",
+   "authors": [
+    "Yimin Han",
+    "Jiahui Zhang",
+    "Wanyue Li",
+    "Zeren Luo",
+    "Yeke Chen",
+    "Liu Zhao",
+    "Peizhuo Li",
+    "Xiaoyu Ji",
+    "Shihao Dong",
+    "Xuechao Chen",
+    "Zhangguo Yu",
+    "Annan Tang",
+    "Peng Lu"
+   ],
+   "title": "MoViC: Real-Time Humanoid Whole-Body Control from Monocular Video Streams",
+   "url": "https://arxiv.org/abs/2611.19998"
+  },
+  "paper": {
+   "date": "2026-11-13T12:00:00+00:00",
+   "description": null,
+   "title": "A robust estimation framework for expectation-maximization in financial time series modeling"
+  }
  },
  "https://doi.org/10.1080/14697688.2026.2756370": {
   "checked": "2026-11-17",
@@ -395,7 +419,7 @@
   }
  },
  "https://doi.org/10.1080/14697688.2026.2757147": {
-  "checked": "2026-11-13",
+  "checked": "2026-11-20",
   "match": null
  },
  "https://doi.org/10.1080/14697688.2026.2757149": {

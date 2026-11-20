@@ -19,6 +19,13 @@
 <pubDate>Tue, 17 Nov 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
+<title>MoViC: Real-Time Humanoid Whole-Body Control from Monocular Video Streams</title>
+<link>https://arxiv.org/abs/2611.19998</link>
+<guid isPermaLink="true">https://arxiv.org/abs/2611.19998</guid>
+<content:encoded>&lt;p&gt;&lt;strong&gt;Authors:&lt;/strong&gt; Yimin Han, Jiahui Zhang, Wanyue Li, Zeren Luo, Yeke Chen, Liu Zhao, Peizhuo Li, Xiaoyu Ji, Shihao Dong, Xuechao Chen, Zhangguo Yu, Annan Tang, Peng Lu&lt;/p&gt;&lt;p&gt;Real-time whole-body imitation from monocular video requires both a robust universal tracker and high-quality real-time reconstruction. We present MoViC, a framework that uses live RGB video as a control signal for humanoid robots without wearable tracking devices. The framework combines monocular human motion reconstruction, robot retargeting, and a transformer-based behavior foundation model. The policy receives proprioceptive history, a single explicit next-step reference, and a compact frequency-domain motion representation that supplies temporal context without explicitly stacking future reference frames, which reduces the input dimension and network size. During deployment, our extrapolation method bridges the 10-Hz visual estimation with 50-Hz controller, enabling asynchronous visual processing and policy execution. Hardware experiments further demonstrate highly dynamic motion tracking and device-free teleoperation of bimanual and single-arm manipulation tasks from live monocular RGB input. Project page: https://movicproject.github.io/ .&lt;/p&gt;&lt;p&gt;&lt;a href="https://arxiv.org/pdf/2611.19998"&gt;PDF&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2611.19998"&gt;arXiv page&lt;/a&gt; · &lt;a href="https://doi.org/10.1080/14697688.2026.2754255"&gt;Quantitative Finance&lt;/a&gt;&lt;/p&gt;</content:encoded>
+<pubDate>Fri, 13 Nov 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
 <title>Continuous-Time Optimal Execution and Utility-Based Statistical Arbitrage in a Markovian Environment</title>
 <link>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371598</link>
 <guid isPermaLink="true">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371598</guid>
