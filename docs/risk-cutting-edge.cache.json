@@ -276,5 +276,22 @@
  "https://www.risk.net/cutting-edge/7964406/refined-slippage-variance-reduction-using-counterfactual-returns": {
   "checked": "2026-11-18",
   "match": null
+ },
+ "https://www.risk.net/cutting-edge/7964465/hedge-portfolio-optimisation-with-sinkhorn-type-algorithms": {
+  "checked": "2026-11-23",
+  "match": {
+   "abstract": "",
+   "authors": [
+    "Yoshihiro Tawada",
+    "Shin Kobayashi"
+   ],
+   "title": "Hedge Portfolio Optimization with Sinkhorn-type Algorithms",
+   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5361681"
+  },
+  "paper": {
+   "date": "2026-11-23T04:30:00+00:00",
+   "description": "Algorithms are proposed to construct efficient hedge portfolios with complex greeks",
+   "title": "Hedge portfolio optimisation with Sinkhorn-type algorithms"
+  }
  }
 }
