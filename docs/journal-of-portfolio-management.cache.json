@@ -154,7 +154,7 @@
   "match": null
  },
  "https://doi.org/10.3905/jpm.2026.086": {
-  "checked": "2026-11-17",
+  "checked": "2026-11-24",
   "match": null
  },
  "https://doi.org/10.3905/jpm.2026.087": {
@@ -214,6 +214,10 @@
  },
  "https://doi.org/10.3905/jpm.2026.094": {
   "checked": "2026-11-23",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.095": {
+  "checked": "2026-11-24",
   "match": null
  },
  "https://doi.org/10.3905/jpm.2026.52.11.005": {
