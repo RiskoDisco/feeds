@@ -89,10 +89,6 @@
    "title": "A Responsive Variance and Covariance Matrix Forecaster for Multiple Horizons and Asset Classes"
   }
  },
- "https://doi.org/10.3905/jpm.2026.073": {
-  "checked": "2026-11-26",
-  "match": null
- },
  "https://doi.org/10.3905/jpm.2026.074": {
   "checked": "2026-11-26",
   "match": null
@@ -222,6 +218,10 @@
  },
  "https://doi.org/10.3905/jpm.2026.096": {
   "checked": "2026-11-25",
+  "match": null
+ },
+ "https://doi.org/10.3905/jpm.2026.097": {
+  "checked": "2026-11-27",
   "match": null
  },
  "https://doi.org/10.3905/jpm.2026.52.11.005": {
